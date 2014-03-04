@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cuba-guide by frodsan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Cuba-guide</h1>
+        <p>No longer maintained.</p>
+
+        <p class="view"><a href="https://github.com/frodsan/cuba-guide">View the Project on GitHub <small>frodsan/cuba-guide</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/frodsan/cuba-guide/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/frodsan/cuba-guide/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/frodsan/cuba-guide">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>**  NOTE: This is not maintained. I moved all the content and keep updating it in LeanPub. More details, hopefully in April.**</p>
+
+<h2>
+<a name="a-catchy-introduction-title-here" class="anchor" href="#a-catchy-introduction-title-here"><span class="octicon octicon-link"></span></a>A catchy introduction title here</h2>
+
+<p>To begin, let's take a moment to answer "what is Cuba?".</p>
+
+<p>Cuba is a web application micro-framework written in Ruby by <a href="https://github.com/soveran/">Michel Martens</a>.
+It rides on Rack so we have the benefits of middlewares and the variety of web servers,
+which support Rack (WEBrick, Thin, Puma, etc.) for free. Cuba is small (~170 lines of
+code) what makes it faster compared with other frameworks.</p>
+
+<p>Unlike other frameworks, Cuba is not opinionated software, it doesn't make
+assumptions about what is the "best" way to do things. It's minimalist by
+design which gives us the freedom to choose the proper tools for the job.</p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>This guide is designed for beginners who want to get started with a Cuba application
+from scratch. However, you need to have some prerequisites installed:</p>
+
+<ul>
+<li><p>Ruby 2.0 or newer. You can get the latest Ruby distributions from the
+<a href="https://www.ruby-lang.org/en/downloads/">Ruby download page</a>.</p></li>
+<li><p>The <a href="http://redis.io/">Redis</a> database. If you haven't yet installed Redis, you can follow
+the instructions in the <a href="http://redis.io/download">Redis download page</a>.</p></li>
+</ul><p>By following along with this guide, we'll build a Twitter clone from scratch.
+It's recommended to create a directory for the application code. Any reference
+to create a new file or execute a specific command, will be made from that
+directory. You can get the complete code <a href="https://github.com/frodsan/cuba-guide/tree/master/twitter-clone">here</a>.</p>
+
+<h2>
+<a name="warming-up" class="anchor" href="#warming-up"><span class="octicon octicon-link"></span></a>Warming up</h2>
+
+<p>You need to know that Cuba doesn't ship with all the tools that we need to
+accomplish our goal, eg. a template rendering engine or a database client.
+But this is where other libraries, that share the same minimalist philosophy,
+come to the rescue.</p>
+
+<p>To make it easier, let's install all the dependencies before we get started.
+In order to achieve this, we will use the <a href="https://github.com/cyx/dep">dep</a> gem. To install it,
+open up a command line prompt and use the <code>gem install</code> command.</p>
+
+<pre><code>$ gem install dep
+</code></pre>
+
+<p>Dep is a tool to track dependencies in a project. That is very helpful if
+you want to know which gems a project is using or if you want to share the
+project with someone else and don't go insane installing all the dependencies
+your project needs.</p>
+
+<p>Open up your favorite text editor and save the following content as <code>.gems</code>.
+This file serves as a manifest of the dependencies of our project.</p>
+
+<pre><code>cuba -v 3.1.0
+cuba-contrib -v 3.1.0
+ohm -v 2.0.0.rc1
+</code></pre>
+
+<p>Finally, execute the following command to install all the listed gems.</p>
+
+<pre><code>$ dep install
+</code></pre>
+
+<p>You will find the purpose behind each dependency over the course of this guide.
+If you want to know more about the features provided by <a href="https://github.com/cyx/dep">dep</a>, please visit
+the project <a href="http://twpil.github.com/dep">homepage</a>.</p>
+
+<h2>
+<a name="creating-the-cuba-app" class="anchor" href="#creating-the-cuba-app"><span class="octicon octicon-link"></span></a>Creating the Cuba app</h2>
+
+<p>Now that Cuba is correctly installed, it's time to create the classic hello world
+application. Creating a Cuba application is pretty easy. Open your preferred text
+editor and enter the following code:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">write</span> <span class="s2">"Hello world!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Save this file as app.rb. As you can see, the code is very readable, but
+don't worry, we will talk about the details later on.</p>
+
+<p>You actually have a functional "Hello World" Cuba application already. To see it
+working, you will need to start the web server. Before that, create a file called
+<code>config.ru</code> with the contents shown in below:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"./app"</span>
+
+<span class="n">run</span> <span class="no">Cuba</span>
+</pre></div>
+
+<p>Now, we can start the web server. Rack comes with a tool called <code>rackup</code> to achieve
+this task, but we will use <a href="https://github.com/rtomayko/shotgun">shotgun</a> in this guide. You can install <code>shotgun</code>
+with the <code>gem</code> command:</p>
+
+<pre><code>$ gem install shotgun
+</code></pre>
+
+<p>Unlike <code>rackup</code>, Shotgun will reload the application every time a new request comes
+in from the web browser. That's great for development because we don't need to restart
+the server every time that we make changes to the application. To shoot the server,
+use the <code>shotgun</code> command.</p>
+
+<pre><code>$ shotgun
+== Shotgun/WEBrick on http://127.0.0.1:9393/
+[2014-02-20 13:20:26] INFO  WEBrick 1.3.1
+[2014-02-20 13:20:26] INFO  ruby 2.1.0 (2013-12-25) [x86_64-darwin13.0]
+[2014-02-20 13:20:26] INFO  WEBrick::HTTPServer#start: pid=24037 port=9393
+</code></pre>
+
+<p>This fired up WEBrick, a webserver built into Ruby by default. To see the app
+in action, open a browser window and navigate to <a href="http://localhost:9393/">http://localhost:9393/</a>. It
+should show the "Hello world!" message.</p>
+
+<p><strong>NOTE:</strong> You will need to restart the server if you install or update a gem.</p>
+
+<h3>
+<a name="breaking-down-the-syntax" class="anchor" href="#breaking-down-the-syntax"><span class="octicon octicon-link"></span></a>Breaking Down the Syntax</h3>
+
+<p>Now that we know how to build a minimal Cuba application, let's take a deeper
+look at the syntax:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">write</span> <span class="s2">"Hello world!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>n this short example, we can identify three methods that appear in all Cuba
+applications: <code>define</code>, <code>on</code> and <code>res</code>.</p>
+
+<p>As the name suggests, <code>Cuba#define</code> allows us to define a Cuba app through a block,
+that gives us some objects like <code>req</code>, <code>res</code> and <code>env</code>, and a couple of helper
+methods to manage the flow of our application, like the handy <code>on</code>.</p>
+
+<p><code>Cuba#on</code> is responsible for managing the control flow of our application and is the
+cornerstone of defining routes. If you're used to the <code>if/else/case</code> statements, on
+will be very easy to get. <strong>How it works?</strong> It executes the given block only if all
+of the given arguments evaluate to <code>true</code>.</p>
+
+<p>Going back to the above example, we can see that <code>on</code> expects <code>root</code> to be <code>true</code> in
+order to write the "Hello, Cuba!" message. <code>root</code> returns <code>true</code> only if the accessed
+path is the root of the application (<code>"/"</code> or <code>""</code>). That's why every time we enter
+to <a href="http://localhost:9393/">http://localhost:9393/</a>, we see the welcome message. It's possible to create
+multiple <code>on</code> blocks or create nested ones, but we will discuss these features later.</p>
+
+<p>Finally, there is the <code>res</code> object that not only represents the response object,
+but also provides us with methods for setting the response status, the headers and
+the body. This is a killer feature of Cuba, because we can explicitly handle the
+server response.</p>
+
+<p>Back to our example, we use the <code>write</code> method to set the response body with the
+greeting message. By default, Cuba sets the response status code to <code>200</code>, but if
+no routes match the request, it issues a <code>404</code>.</p>
+
+<h2>
+<a name="setting-the-home-page" class="anchor" href="#setting-the-home-page"><span class="octicon octicon-link"></span></a>Setting the home page</h2>
+
+<p>Now that we have a functional Cuba app, we need to display a page with a register
+form for users not logged in to the app.</p>
+
+<h3>
+<a name="the-first-template" class="anchor" href="#the-first-template"><span class="octicon octicon-link"></span></a>The first template</h3>
+
+<p>Suppose you have to write a big chunk of HTML code or change a lot of pages at once,
+it will be hard to do it if we define them inside the routes or using only strings.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">write</span> <span class="s2">"&lt;form&gt; ... &lt;/form&gt;"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Templates promote reusability and maintainability.</p>
+
+<p>Cuba doesn't ship with a template engine. This guide uses <a href="https://github.com/soveran/mote">mote</a>, a very
+simple and fast template engine. We will use the <a href="https://github.com/cyx/cuba-contrib">cuba-contrib</a> gem
+to facilitate the integration between Mote and Cuba.</p>
+
+<p>Open the <code>app.rb</code> file and add make these changes:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+<span class="nb">require</span> <span class="s2">"cuba/mote"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="no">Cuba</span><span class="o">::</span><span class="no">Mote</span><span class="p">)</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Cuba provides a way to extend its functionality through the <code>plugin</code> method.
+Later in the guide, we will demonstrate how to author your own plugins.</p>
+
+<p><strong>NOTE:</strong> If you want to use another template engine, read this
+<a href="TODO">"Cuba and Tilt"</a>.</p>
+
+<p>Now that Mote is configured, let's create the layout. This is the HTML template
+that wraps the main content of every template. Create a directory called <code>views</code>
+and save the following content in a file called <code>layout.mote</code>.</p>
+
+<div class="highlight highlight-html"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Twitter Clone<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    {{ params[:content] }}
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>There is one thing that you should notice <code>{{ params[:content] }}</code>. Mote prints in the
+template whatever is between <code>{{</code> and <code>}}</code>. In this case, <code>{{ params[:content] }}</code>
+is responsible for combining the content of each sub-page with the layout.</p>
+
+<p>Now that we have a layout, let's create another template called <code>home.mote</code> with the
+content below. Remember that all the templates need to be saved in the <code>views</code>
+directory.</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;h2&gt;</span>New to Twitter?<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/signup"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"signup[email]"</span> <span class="na">placeholder=</span><span class="s">"Email"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"signup[username]"</span> <span class="na">placeholder=</span><span class="s">"Username"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"signup[name]"</span> <span class="na">placeholder=</span><span class="s">"Name"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Create Account"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+
+<p>The last step is to change the code inside the <code>root</code> route:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+<span class="nb">require</span> <span class="s2">"cuba/mote"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="no">Cuba</span><span class="o">::</span><span class="no">Mote</span><span class="p">)</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">render</span><span class="p">(</span><span class="s2">"home"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>The <code>render</code> method, provided by <code>Cuba::Mote</code>, will print the desired template
+into the browser. Refresh your browser window. It should show the signup form.</p>
+
+<h3>
+<a name="passing-data-into-templates" class="anchor" href="#passing-data-into-templates"><span class="octicon octicon-link"></span></a>Passing Data into Templates</h3>
+
+<p>Let's add the ability to change the title of the page. First, we need to change
+the <code>layout.mote</code> file and include the title head.</p>
+
+<div class="highlight highlight-html"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Twitter Clone | {{ params[:title] }}<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    {{ params[:content] }}
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>Notice the <code>{{ params[:title] }}</code> statement. You can pass a hash as a second
+parameter for the <code>render</code> method. This allows us to show information generated in
+the back-end of the app to the front-end pages.</p>
+
+<p>Change the <code>root</code> route on the <code>app.rb</code> file to set a title for the home page.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">render</span><span class="p">(</span><span class="s2">"home"</span><span class="p">,</span> <span class="ss">title</span><span class="p">:</span> <span class="s2">"Welcome to Twitter"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Refresh your browser window. It should show the new title.</p>
+
+<p>This app wouldn't be a Twitter clone if it didn't have an authentication system.
+But before thinking about users and passwords, we'll need to set a database to
+store the users information. That's when Redis and Ohm come into play.</p>
+
+<h2>
+<a name="setting-up-redis-and-ohm" class="anchor" href="#setting-up-redis-and-ohm"><span class="octicon octicon-link"></span></a>Setting up Redis and Ohm</h2>
+
+<p>It'll be more difficult to create our own connection client or craft by hand the keys
+to save the objects in Redis. That's why we'll use <a href="https://github.com/soveran/ohm">Ohm</a>, an Object-hash mapping
+library for storing objects in Redis.</p>
+
+<p>Setting up Ohm inside the app, is as easy as using a <code>require</code> statement:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+<span class="nb">require</span> <span class="s2">"cuba/mote"</span>
+<span class="nb">require</span> <span class="s2">"ohm"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="no">Cuba</span><span class="o">::</span><span class="no">Mote</span><span class="p">)</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">render</span><span class="p">(</span><span class="s2">"home"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>By default, Ohm connects to <code>redis://127.0.0.1:6379</code>. If you want to change the
+default, you can read the <a href="https://github.com/soveran/ohm#connecting-to-a-redis-database">"Connecting to a Redis Database"</a>
+section in the Ohm README.</p>
+
+<p>To check if Ohm is set in our app, open <code>irb</code> (Interactive Ruby Shell) requiring
+the app and execute the following command:</p>
+
+<pre><code>$ irb -r ./app.rb
+&gt;&gt; Ohm.redis.call("ECHO", "Hello, Redis!")
+=&gt; "Hello, Redis!"
+</code></pre>
+
+<h2>
+<a name="creating-the-user-model" class="anchor" href="#creating-the-user-model"><span class="octicon octicon-link"></span></a>Creating the User model</h2>
+
+<p>Now that we have Redis and Ohm working, it's time to set the user model for the
+authentication system. Ohm uses the <code>Ohm::Model</code> class to map objects to Redis
+datastore.</p>
+
+<p>Create a new directory called <code>models</code> and save the following content in a
+file called <code>user.rb</code>:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">Ohm</span><span class="o">::</span><span class="no">Model</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>That's it! We don't need migrations or schema definitions to start using it.
+For the moment, we need to save the username, email and name of the users. We can
+use the <code>attribute</code> class method to define the attributes to be saved. The values
+will be stored as strings.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">Ohm</span><span class="o">::</span><span class="no">Model</span>
+  <span class="n">attribute</span> <span class="ss">:username</span>
+  <span class="n">attribute</span> <span class="ss">:email</span>
+  <span class="n">attribute</span> <span class="ss">:name</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Add this line to the <code>app.rb</code> file to require all the models inside the <code>/models</code>
+directory.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+<span class="nb">require</span> <span class="s2">"cuba/mote"</span>
+<span class="nb">require</span> <span class="s2">"ohm"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="no">Cuba</span><span class="o">::</span><span class="no">Mote</span><span class="p">)</span>
+
+<span class="no">Dir</span><span class="o">[</span><span class="s2">"./models/**/*.rb"</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</pre></div>
+
+<p>Let's play around with Ohm!</p>
+
+<pre><code>$ irb -r ./app.rb
+&gt;&gt; user = User.create(username: "john", name: "John Doe", email: "john@doe.com")
+&gt;&gt; user.id
+# =&gt; 2
+&gt;&gt; user.attributes
+# =&gt; {:username=&gt;"john", :name=&gt;"John Doe", :email=&gt;"john@doe.com"}
+&gt;&gt; user == User[2]
+# =&gt; true
+</code></pre>
+
+<h2>
+<a name="user-signup-form" class="anchor" href="#user-signup-form"><span class="octicon octicon-link"></span></a>User signup form</h2>
+
+<p>We already have a signup form in the homepage, but if you click the "Create Account"
+button nothing happens. Before touching the code, let's think about what we need.</p>
+
+<ol>
+<li>We need to match the "/signup" path.</li>
+<li>Also, it's important to check that HTTP POST method is used.</li>
+<li>Finally, check if the "signup" request parameter is present.</li>
+</ol><p>Guess what? Cuba provides all the features to accomplish those tasks in an elegant
+way. Let's add the piece of code that is missing:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"cuba"</span>
+<span class="nb">require</span> <span class="s2">"cuba/mote"</span>
+<span class="nb">require</span> <span class="s2">"ohm"</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span><span class="p">(</span><span class="no">Cuba</span><span class="o">::</span><span class="no">Mote</span><span class="p">)</span>
+
+<span class="no">Dir</span><span class="o">[</span><span class="s2">"./models/**/*.rb"</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="no">Cuba</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">on</span> <span class="n">root</span> <span class="k">do</span>
+    <span class="n">render</span><span class="p">(</span><span class="s2">"home"</span><span class="p">,</span> <span class="ss">title</span><span class="p">:</span> <span class="s2">"Welcome to Twitter"</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">on</span> <span class="s2">"signup"</span> <span class="k">do</span>
+    <span class="n">on</span> <span class="n">post</span><span class="p">,</span> <span class="n">param</span><span class="p">(</span><span class="s2">"signup"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">signup</span><span class="o">|</span>
+      <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">signup</span><span class="p">)</span>
+
+      <span class="n">res</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"You created a new user: </span><span class="si">#{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<h2>
+<a name="adding-some-validation" class="anchor" href="#adding-some-validation"><span class="octicon octicon-link"></span></a>Adding some validation</h2>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/frodsan">frodsan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
