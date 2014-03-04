@@ -1,3 +1,5 @@
+**  NOTE: This is not maintained. I moved all the content and keep updating it in LeanPub. More details, hopefully in April.**
+
 A catchy introduction title here
 --------------------------------
 
