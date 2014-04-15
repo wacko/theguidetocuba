@@ -6,6 +6,7 @@ install:
 	npm install grunt-contrib-clean@0.5.0
 
 publish:
+	git push
 	grunt publish
 
 server:
