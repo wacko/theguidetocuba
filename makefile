@@ -7,3 +7,6 @@ install:
 
 publish:
 	grunt publish
+
+server:
+	gitbook serve
