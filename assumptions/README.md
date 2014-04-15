@@ -1,7 +1,7 @@
-Guide Assumptions
-=================
+Assumptions
+===========
 
-By following this guide, we'll build a Twitter clone from scratch. In
+By following this book, we'll build a Twitter clone from scratch. In
 order to try out the examples of the book, you need to have some
 prerequisites installed:
 
