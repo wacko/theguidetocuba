@@ -9,7 +9,7 @@ includes a set of basic tools to create a web application.
 To start using the template, open up a command line prompt and use git
 to clone the repository of the project:
 
-```
+```html
 $ git clone git@github.com:frodsan/app.git twitter_clone
 $ cd twitter_clone
 $ ls
