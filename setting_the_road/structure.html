@@ -16,8 +16,6 @@ application from scratch.">
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../setting_the_road/dependencies.html" />
-        
         
         <link rel="prev" href="../setting_the_road/cuba.html" />
         
@@ -39,7 +37,7 @@ application from scratch.">
     </head>
     <body>
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1397603091620">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1397762317735">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -117,14 +115,6 @@ application from scratch.">
                             
                         </li>
                     
-                        <li  data-level="2.3" data-path="setting_the_road/dependencies.html">
-                            
-                            <a href="../setting_the_road/dependencies.html">
-                                <i class="fa fa-check"></i> <b>2.3.</b> Installing the Dependencies
-                            </a>
-                            
-                        </li>
-                    
                 </ul>
                 
             </li>
@@ -137,28 +127,26 @@ application from scratch.">
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 80%;min-width: 60%;"></div>
+        <div class="inner" style="width: 100%;min-width: 75%;"></div>
     </div>
     <div class="chapters">
     
         <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="../assumptions/README.html" title="Assumptions" class="chapter done new-chapter" data-progress="1" style="left: 20%;"></a>
+        <a href="../assumptions/README.html" title="Assumptions" class="chapter done new-chapter" data-progress="1" style="left: 25%;"></a>
     
-        <a href="../setting_the_road/README.html" title="Setting the Road" class="chapter done new-chapter" data-progress="2" style="left: 40%;"></a>
+        <a href="../setting_the_road/README.html" title="Setting the Road" class="chapter done new-chapter" data-progress="2" style="left: 50%;"></a>
     
-        <a href="../setting_the_road/cuba.html" title="What&#39;s Cuba?" class="chapter done " data-progress="2.1" style="left: 60%;"></a>
+        <a href="../setting_the_road/cuba.html" title="What&#39;s Cuba?" class="chapter done " data-progress="2.1" style="left: 75%;"></a>
     
-        <a href="../setting_the_road/structure.html" title="Structuring the Application" class="chapter done " data-progress="2.2" style="left: 80%;"></a>
-    
-        <a href="../setting_the_road/dependencies.html" title="Installing the Dependencies" class="chapter  " data-progress="2.3" style="left: 100%;"></a>
+        <a href="../setting_the_road/structure.html" title="Structuring the Application" class="chapter done " data-progress="2.2" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_5">
                     
                         <h1 id="structuring-the-application">Structuring the Application</h1>
 <p>Cuba gives you a lot of freedom to choose the architecture of your
@@ -167,12 +155,13 @@ template called <a href="https://github.com/frodsan/app" target="_blank">app</a>
 includes a set of basic tools to create a web application.</p>
 <p>To start using the template, open up a command line prompt and use git
 to clone the repository of the project:</p>
-<pre><code>$ git clone git@github<span class="hljs-preprocessor">.com</span>:frodsan/app<span class="hljs-preprocessor">.git</span> twitter_clone
+<pre><code class="lang-html">$ git clone git@github.com:frodsan/app.git twitter_clone
 $ cd twitter_clone
 $ ls
-README<span class="hljs-preprocessor">.md</span>    config<span class="hljs-preprocessor">.ru</span>    helpers    makefile    public    test
-app<span class="hljs-preprocessor">.rb</span>       filters      mails      models      routes    views
-</code></pre><p>Now, the <code>twitter_clone</code> directory has the files and folders that make up
+README.md    config.ru    helpers    makefile    public    test
+app.rb       filters      mails      models      routes    views
+</code></pre>
+<p>Now, the <code>twitter_clone</code> directory has the files and folders that make up
 the structure of the application. The following table shows a basic
 overview of the purpose of each of the files and folders that were
 created by the template.</p>
@@ -186,7 +175,7 @@ created by the template.</p>
 <tbody>
 <tr>
 <td>.gems</td>
-<td>Lists the dependencies of the application. The dep gem uses this file to install all the missing dependencies. For more information about the dep workflow, read the next section <a href="#installingdependencies">&quot;Installing Dependencies&quot;</a>.</td>
+<td>Lists the dependencies of the application. The dep gem uses this file to install all the missing dependencies. For more information about the dep workflow, read the next section <a href="#comingsoon">&quot;Installing Dependencies&quot;</a>.</td>
 </tr>
 <tr>
 <td>app.rb</td>
@@ -202,11 +191,11 @@ created by the template.</p>
 </tr>
 <tr>
 <td>filters/</td>
-<td>Contains the form validators. Unlike other frameworks, Cuba delegates validation and whitelisting responsibilities to filter objects. <a href="#TODO">&quot;Adding validations&quot;</a> covers filter objects in more detail.</td>
+<td>Contains the form validators. Unlike other frameworks, Cuba delegates validation and whitelisting responsibilities to filter objects.</td>
 </tr>
 <tr>
 <td>helpers/</td>
-<td>Helpers are a simple way to extend Cuba&#39;s functionality. This folder contains all the helpers for the application. This topic is covered in <a href="#TODO">&quot;Authoring your own plugin&quot;</a>.</td>
+<td>Helpers are a simple way to extend Cuba&#39;s functionality. This folder contains all the helpers for the application.</td>
 </tr>
 <tr>
 <td>mails/</td>
@@ -222,15 +211,15 @@ created by the template.</p>
 </tr>
 <tr>
 <td>public/</td>
-<td>Contains static files accessible to the public (e.g. web browsers). Such as error pages, images, JavaScript and CSS files, etc. This is covered in more detail in <a href="#TODO">&quot;Adding style to the application&quot;</a>.</td>
+<td>Contains static files accessible to the public (e.g. web browsers). Such as error pages, images, JavaScript and CSS files, etc.</td>
 </tr>
 <tr>
 <td>routes/</td>
-<td>A Cuba application is composed by other miniature applications that add functionality to the main one. Ability to mount applications is one of the most powerful features of Cuba. This folder contains these miniature applications. <a href="#TODO">&quot;Setting up a modular application&quot;</a> covers this topic in more depth.</td>
+<td>A Cuba application is composed by other miniature applications that add functionality to the main one. Ability to mount applications is one of the most powerful features of Cuba. This folder contains these miniature applications.</td>
 </tr>
 <tr>
 <td>test/</td>
-<td>Application tests. These are covered in <a href="#TODO">&quot;Testing the Cuba Application&quot;</a>.</td>
+<td>Application tests.</td>
 </tr>
 <tr>
 <td>views/</td>
@@ -249,8 +238,6 @@ created by the template.</p>
         
         <a href="../setting_the_road/cuba.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../setting_the_road/dependencies.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
