@@ -2,25 +2,36 @@ Structuring the Application
 ===========================
 
 Cuba gives you a lot of freedom to choose the architecture of your
-application because it doesn't impose any. In this guide, we will use a
-template called [app](https://github.com/frodsan/app). This template
-includes a set of basic tools to create a web application.
+application. In this guide, we will use a template called [app](https://github.com/frodsan/app).
+This template includes the tools we need for the application.
 
-To start using the template, open up a command line prompt and use git
-to clone the repository of the project:
+To start using the template, open up a command line prompt and type:
 
 ```html
-$ git clone git@github.com:frodsan/app.git twitter_clone
-$ cd twitter_clone
+$ git clone git@github.com:frodsan/app.git twitter
+```
+
+This will create a `twitter` directory with the files and folders that
+the application needs.
+
+After you download the template, switch to the application's directory.
+
+```html
+$ cd twitter
+```
+
+From now on, all the instructions from the command line must be executed
+from this directory. For example:
+
+```html
 $ ls
 README.md    config.ru    helpers    makefile    public    test
 app.rb       filters      mails      models      routes    views
 ```
 
-Now, the `twitter_clone` directory has the files and folders that make up
-the structure of the application. The following table shows a basic
-overview of the purpose of each of the files and folders that were
-created by the template.
+This table shows a basic overview of the purpose of each of the files and
+folders that make up the structure of the application. We'll learn about
+most of these files and directories throughout the rest of this book.
 
 | File/Folder | Purpose
 |-------------|--------
