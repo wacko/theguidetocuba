@@ -3,7 +3,7 @@ Structuring the Application
 
 Cuba gives you a lot of freedom to choose the architecture of your
 application. In this guide, we will use a template called [app](https://github.com/frodsan/app).
-This template includes the tools we need for the application.
+This template includes the tools we need.
 
 To start using the template, open up a command line prompt and type:
 
