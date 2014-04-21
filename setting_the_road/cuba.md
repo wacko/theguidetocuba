@@ -7,7 +7,7 @@ Cuba is a web application micro-framework written in Ruby by [Michel Martens](ht
 It rides on [Rack](http://rack.github.io) so we have the benefits of
 middleware, Rack libraries, and a variety of web servers for free.
 
-Cuba is minimalist by design (∼170 lines of code) which makes it
+Cuba is minimalist by design (203 lines of code) which makes it
 [faster](https://github.com/luislavena/bench-micro#requestssec)
 compared to other web frameworks. Also, it doesn’t make assumptions
 about the "best" way to do things. That gives us the freedom to choose
