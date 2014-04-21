@@ -28,9 +28,8 @@ README.md    config.ru    helpers    makefile    public    test
 app.rb       filters      mails      models      routes    views
 ```
 
-This table shows a basic overview of the purpose of each of the files and
-folders that make up the structure of the application. We'll learn about
-most of these files and directories throughout the rest of this book.
+This table shows a basic overview of the files and folders that make up the structure of the application. 
+We'll learn more about these files and directories throughout the rest of this book.
 
 | File/Folder | Purpose
 |-------------|--------
