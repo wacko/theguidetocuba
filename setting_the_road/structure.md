@@ -44,6 +44,6 @@ directories throughout the rest of this book.
 | makefile    | This file contains a series of tasks that can be run from the command line. E.g. tasks for running the server, testing or interacting with the application.
 | models/     | Contains the models for the application.
 | public/     | Contains static files accessible to the public (e.g. web browsers). Such as error pages, images, JavaScript and CSS files, etc.
-| routes/     | A Cuba application is composed by other miniature applications that add functionality to the main one. Ability to mount applications is one of the most powerful features of Cuba. This folder contains these miniature applications.
+| routes/     | A Cuba application is composed by other miniature applications that add functionality to the main one. The ability to mount applications is one of the most powerful features of Cuba. This folder contains these miniature applications.
 | test/       | Application tests.
 | views/      | Contains the HTML templates for the application.
