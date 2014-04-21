@@ -3,7 +3,6 @@ Structuring the Application
 
 Cuba gives you a lot of freedom to choose the architecture of your
 application. In this guide, we will use a template called [app](https://github.com/frodsan/app).
-This template includes the tools we need.
 
 To start using the template, open up a command line prompt and type:
 
@@ -11,8 +10,8 @@ To start using the template, open up a command line prompt and type:
 $ git clone git@github.com:frodsan/app.git twitter
 ```
 
-This will create a `twitter` directory with the files and folders that
-the application needs.
+This will create a `twitter` directory with the files and folders to get
+a minimal functional application.
 
 After you download the template, switch to the application's directory.
 
@@ -20,8 +19,8 @@ After you download the template, switch to the application's directory.
 $ cd twitter
 ```
 
-From now on, all the instructions from the command line must be executed
-from this directory. For example:
+From now on, you must execute all the command line instructions from this
+directory. For example:
 
 ```html
 $ ls
