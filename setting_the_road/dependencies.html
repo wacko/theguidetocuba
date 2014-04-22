@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Assumptions | The Guide to Cuba</title>
+        <title>Managing Dependencies | The Guide to Cuba</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,11 @@ application from scratch, whether you are an experienced programmer or not. ">
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../setting_the_road/README.html" />
         
-        
-        <link rel="prev" href="../index.html" />
+        <link rel="prev" href="../setting_the_road/structure.html" />
         
 
-        <meta property="og:title" content="Assumptions | The Guide to Cuba">
+        <meta property="og:title" content="Managing Dependencies | The Guide to Cuba">
         <meta property="og:site_name" content="The Guide to Cuba">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -38,7 +36,7 @@ application from scratch, whether you are an experienced programmer or not. ">
     </head>
     <body>
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="1" data-basepath=".." data-revision="1398137096473">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398137096473">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -74,7 +72,7 @@ application from scratch, whether you are an experienced programmer or not. ">
             <a href="https://github.com/frodsan/theguidetocuba/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/frodsan/theguidetocuba/edit/master/assumptions/README.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/frodsan/theguidetocuba/edit/master/setting_the_road/dependencies.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -136,7 +134,7 @@ application from scratch, whether you are an experienced programmer or not. ">
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 20%;min-width: 0%;"></div>
+        <div class="inner" style="width: 100%;min-width: 80%;"></div>
     </div>
     <div class="chapters">
     
@@ -144,37 +142,27 @@ application from scratch, whether you are an experienced programmer or not. ">
     
         <a href="../assumptions/README.html" title="Assumptions" class="chapter done new-chapter" data-progress="1" style="left: 20%;"></a>
     
-        <a href="../setting_the_road/README.html" title="Setting the Road" class="chapter  new-chapter" data-progress="2" style="left: 40%;"></a>
+        <a href="../setting_the_road/README.html" title="Setting the Road" class="chapter done new-chapter" data-progress="2" style="left: 40%;"></a>
     
-        <a href="../setting_the_road/cuba.html" title="What&#39;s Cuba?" class="chapter  " data-progress="2.1" style="left: 60%;"></a>
+        <a href="../setting_the_road/cuba.html" title="What&#39;s Cuba?" class="chapter done " data-progress="2.1" style="left: 60%;"></a>
     
-        <a href="../setting_the_road/structure.html" title="Structuring the Application" class="chapter  " data-progress="2.2" style="left: 80%;"></a>
+        <a href="../setting_the_road/structure.html" title="Structuring the Application" class="chapter done " data-progress="2.2" style="left: 80%;"></a>
     
-        <a href="../setting_the_road/dependencies.html" title="Managing Dependencies" class="chapter  " data-progress="2.3" style="left: 100%;"></a>
+        <a href="../setting_the_road/dependencies.html" title="Managing Dependencies" class="chapter done " data-progress="2.3" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_3">
                     
-                        <h1 id="assumptions">Assumptions</h1>
-<p>By following this book, we&#39;ll build a Twitter clone from scratch. In
-order to try out the examples of the book, you need to have some
-prerequisites installed:</p>
-<ul>
-<li><p>Ruby 2.0 or newer. You can get the latest Ruby from the
-<a href="https://www.ruby-lang.org/en/downloads/" target="_blank">Ruby download page</a>.</p>
-</li>
-<li><p>The <a href="http://redis.io/" target="_blank">Redis</a> database. If you haven&#39;t yet installed Redis, you can
-follow the instructions in the <a href="http://redis.io/download" target="_blank">Redis download page</a>.</p>
-</li>
-<li><p><a href="http://git-scm.com/" target="_blank">Git</a>, the version control system. You can follow the installation
-instructions at the <a href="http://www.git-scm.com/book/en/Getting-Started-Installing-Git" target="_blank">Installing Git section of Pro Git</a>.</p>
-</li>
-</ul>
-<p><strong>NOTE:</strong> All the code examples have been tested on OSX and Linux only.</p>
+                        <h1 id="managing-dependencies">Managing Dependencies</h1>
+<p>In every application, there are common tasks that need to be done.
+Libraries are very useful for not reinventing the wheel. In Ruby,
+they are often referred to as <strong>gems</strong>.</p>
+<p>Ruby uses <a href="https://rubygems.org/" target="_blank">Rubygems</a> to distribute and
+facilitate the installation of the gems.</p>
 
                     
                     </section>
@@ -184,10 +172,8 @@ instructions at the <a href="http://www.git-scm.com/book/en/Getting-Started-Inst
         </div>
 
         
-        <a href="../index.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="../setting_the_road/structure.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../setting_the_road/README.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
