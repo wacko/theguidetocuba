@@ -36,7 +36,7 @@ application from scratch, whether you are an experienced programmer or not. ">
     </head>
     <body>
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398216133584">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398220196006">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -183,15 +183,40 @@ is an isolated space to install gems. By providing each project with
 their own gemset, you can be sure that the right version of a gem is
 loaded.</p>
 <p>While <strong>gs</strong> handles the gemset, <strong>dep</strong> keeps track of the dependencies
-for your project, making it easier to install them.</p>
+for your project, making sure that all the dependencies are met.</p>
 <p>To install <strong>gs</strong> and <strong>dep</strong>, use the <code>gem install</code> command:</p>
-<pre><code class="lang-html">$ gem install gs
-$ gem install dep
-</code></pre>
-<p>Before installing the dependencies of this project, you need a gemset.
+<pre><code><span class="hljs-variable">$ </span>gem install gs
+<span class="hljs-variable">$ </span>gem install dep
+</code></pre><p>Before installing the dependencies of this project, you need a gemset.
 Creating one is as easy as typing:</p>
-<pre><code class="lang-html">$ gs init
-</code></pre>
+<pre><code><span class="hljs-variable">$ </span>gs init
+</code></pre><p>This command does two things. First, it creates a directory <code>.gs</code>, where
+Rubygems will install the dependencies. Secondly, it starts a shell session
+and set the <code>.gs</code> folder as the path where Ruby will look for gems.</p>
+<p>Now that we created a local gemset, it&#39;s time to install the dependencies
+for our project. <strong>dep</strong> uses a <code>.gems</code> file to keep track of the required
+dependencies for the application. This file lists the gems with their
+version numbers. In our application&#39;s folder, you will find the <code>.gems</code>
+file that contains the dependencies we&#39;ll use in this book. We&#39;ll talk
+more about each gem later in this book.</p>
+<pre><code>cuba <span class="hljs-attribute">-v</span> <span class="hljs-number">3.1</span><span class="hljs-number">.1</span>
+cuba<span class="hljs-attribute">-contrib</span> <span class="hljs-attribute">-v</span> <span class="hljs-number">3.1</span><span class="hljs-number">.0</span>
+cutest <span class="hljs-attribute">-v</span> <span class="hljs-number">1.2</span><span class="hljs-number">.1</span>
+ohm <span class="hljs-attribute">-v</span> <span class="hljs-number">2.0</span><span class="hljs-number">.0</span>
+mote <span class="hljs-attribute">-v</span> <span class="hljs-number">1.1</span><span class="hljs-number">.2</span>
+scrivener <span class="hljs-attribute">-v</span> <span class="hljs-number">0.2</span><span class="hljs-number">.0</span>
+rack<span class="hljs-attribute">-protection</span> <span class="hljs-attribute">-v</span> <span class="hljs-number">1.5</span><span class="hljs-number">.3</span>
+rack<span class="hljs-attribute">-test</span> <span class="hljs-attribute">-v</span> <span class="hljs-number">0.6</span><span class="hljs-number">.2</span>
+shield <span class="hljs-attribute">-v</span> <span class="hljs-number">2.1</span><span class="hljs-number">.0</span>
+shotgun <span class="hljs-attribute">-v</span> <span class="hljs-number">0.9</span>
+</code></pre><p>Finally, we need to install the gems by running:</p>
+<pre><code><span class="hljs-variable">$ </span>dep install
+</code></pre><p>This simply does a <code>gem install</code> for each dependency on the list.</p>
+<p><strong>dep</strong> also has features for adding and removing dependencies.
+To read more about <strong>dep</strong>, visit their <a href="http://twpil.github.io/dep/" target="_blank">home page</a>.</p>
+<p><strong>NOTE:</strong> It&#39;s important to mention that together, <strong>gs</strong> and <strong>dep</strong>,
+only have 200 lines of code and don&#39;t add any memory footprint to your
+application.</p>
 
                     
                     </section>

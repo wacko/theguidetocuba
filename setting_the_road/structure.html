@@ -38,7 +38,7 @@ application from scratch, whether you are an experienced programmer or not. ">
     </head>
     <body>
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1398216133584">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1398220196006">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -163,20 +163,17 @@ application from scratch, whether you are an experienced programmer or not. ">
 <p>Cuba gives you a lot of freedom to choose the architecture of your
 application. In this guide, we will use a template called <a href="https://github.com/frodsan/app" target="_blank">app</a>.</p>
 <p>To start using the template, open up a command line prompt and type:</p>
-<pre><code class="lang-html">$ git clone git@github.com:frodsan/app.git twitter
-</code></pre>
-<p>This will create a <code>twitter</code> directory with the files and folders to get
+<pre><code><span class="hljs-variable">$ </span>git clone git<span class="hljs-variable">@github</span>.<span class="hljs-symbol">com:</span>frodsan/app.git twitter
+</code></pre><p>This will create a <code>twitter</code> directory with the files and folders to get
 a minimal functional application.</p>
 <p>After you download the template, switch to the application&#39;s directory.</p>
-<pre><code class="lang-html">$ cd twitter
-</code></pre>
-<p>From now on, you must execute all the command line instructions from this
+<pre><code>$ <span class="hljs-built_in">cd</span> twitter
+</code></pre><p>From now on, you must execute all the command line instructions from this
 directory. For example:</p>
-<pre><code class="lang-html">$ ls
-README.md    config.ru    helpers    makefile    public    test
-app.rb       filters      mails      models      routes    views
-</code></pre>
-<p>This table shows a basic overview of the files and folders that make up
+<pre><code>$ ls
+README<span class="hljs-preprocessor">.md</span>    config<span class="hljs-preprocessor">.ru</span>    helpers    makefile    public    test
+app<span class="hljs-preprocessor">.rb</span>       filters      mails      models      routes    views
+</code></pre><p>This table shows a basic overview of the files and folders that make up
 the structure of the application. We&#39;ll learn more about these files and
 directories throughout the rest of this book.</p>
 <table>
@@ -189,7 +186,7 @@ directories throughout the rest of this book.</p>
 <tbody>
 <tr>
 <td>.gems</td>
-<td>Lists the dependencies of the application. The dep gem uses this file to install all the missing dependencies. For more information about the dep workflow, read the next section <a href="#comingsoon">&quot;Installing Dependencies&quot;</a>.</td>
+<td>A list of the dependencies for the application. For more information, read <a href="/theguidetocuba/setting_the_road/dependencies.html">&quot;Managing Dependencies&quot;</a>.</td>
 </tr>
 <tr>
 <td>app.rb</td>
