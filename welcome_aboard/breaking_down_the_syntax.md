@@ -5,8 +5,6 @@ Now that we know how to build a minimal Cuba application, let's take a deeper
 look at the syntax:
 
 ```ruby
-require "cuba"
-
 Cuba.define do
   on root do
     res.write "Hello world!"
