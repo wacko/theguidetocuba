@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Managing Dependencies | The Guide to Cuba</title>
+        <title>Up and Running | The Guide to Cuba</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,13 @@ application from scratch, whether you are an experienced programmer or not. ">
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../welcome_aboard/README.html" />
+        <link rel="next" href="../welcome_aboard/breaking_down_the_syntax.html" />
         
         
-        <link rel="prev" href="../setting_the_road/structure.html" />
+        <link rel="prev" href="../welcome_aboard/hello_cuba.html" />
         
 
-        <meta property="og:title" content="Managing Dependencies | The Guide to Cuba">
+        <meta property="og:title" content="Up and Running | The Guide to Cuba">
         <meta property="og:site_name" content="The Guide to Cuba">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -44,7 +44,7 @@ application from scratch, whether you are an experienced programmer or not. ">
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398265644903">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.2" data-basepath=".." data-revision="1398265644903">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -107,7 +107,7 @@ application from scratch, whether you are an experienced programmer or not. ">
             <a href="https://github.com/frodsan/theguidetocuba/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/frodsan/theguidetocuba/edit/master/setting_the_road/dependencies.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/frodsan/theguidetocuba/edit/master/welcome_aboard/up_and_running.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         
@@ -206,7 +206,7 @@ application from scratch, whether you are an experienced programmer or not. ">
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 55.55555555555556%;min-width: 44.44444444444444%;"></div>
+        <div class="inner" style="width: 88.88888888888889%;min-width: 77.77777777777777%;"></div>
     </div>
     <div class="chapters">
     
@@ -222,11 +222,11 @@ application from scratch, whether you are an experienced programmer or not. ">
     
         <a href="../setting_the_road/dependencies.html" title="Managing Dependencies" class="chapter done " data-progress="2.3" style="left: 55.55555555555556%;"></a>
     
-        <a href="../welcome_aboard/README.html" title="Welcome Aboard" class="chapter  new-chapter" data-progress="3" style="left: 66.66666666666667%;"></a>
+        <a href="../welcome_aboard/README.html" title="Welcome Aboard" class="chapter done new-chapter" data-progress="3" style="left: 66.66666666666667%;"></a>
     
-        <a href="../welcome_aboard/hello_cuba.html" title="Hello Cuba!" class="chapter  " data-progress="3.1" style="left: 77.77777777777777%;"></a>
+        <a href="../welcome_aboard/hello_cuba.html" title="Hello Cuba!" class="chapter done " data-progress="3.1" style="left: 77.77777777777777%;"></a>
     
-        <a href="../welcome_aboard/up_and_running.html" title="Up and Running" class="chapter  " data-progress="3.2" style="left: 88.88888888888889%;"></a>
+        <a href="../welcome_aboard/up_and_running.html" title="Up and Running" class="chapter done " data-progress="3.2" style="left: 88.88888888888889%;"></a>
     
         <a href="../welcome_aboard/breaking_down_the_syntax.html" title="Breaking Down the Syntax" class="chapter  " data-progress="3.3" style="left: 100%;"></a>
     
@@ -235,82 +235,15 @@ application from scratch, whether you are an experienced programmer or not. ">
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_9">
-                    
-                        <h1 id="managing-dependencies">Managing Dependencies</h1>
-<p>In every web application, there are common tasks that you need to do
-(e.g authenticate users or query a database). Libraries are useful for
-not reinventing the wheel, and in Ruby they are often referred to as
-<strong>gems</strong>.</p>
-<p>Ruby uses <a href="https://rubygems.org/" target="_blank">Rubygems</a> to distribute them and to
-ease the installation. Installing Cuba is as easy as typing
-<code>gem install cuba</code> in the command line.</p>
-<p>Even though <strong>Rubygems</strong> is useful when installing gems, it has its
-limitations. Unfortunately, it installs all gems globally. It means
-that if you have different versions of a gem installed, you have to
-make sure that you require the right version for your project.</p>
-<p><a href="http://bundler.io/" target="_blank">Bundler</a> is one of the most used tools to solve
-this problem. It has approximately ~10k lines of code, that&#39;s more than
-all the dependencies of this project put together. Because of this
-complexity, we&#39;ll use a different approach in this book.</p>
-<h2 id="-the-right-way-">&quot;The Right Way&quot;</h2>
-<p>Back to the original problem, we need a way to keep track of the
-dependencies and install the right version of each one. This is where
-<a href="https://github.com/soveran/gs" target="_blank">gs</a> and <a href="https://github.com/cyx/dep" target="_blank">dep</a>
-come to the rescue.</p>
-<p>With <strong>gs</strong> you can create a <strong>gemset</strong> for each project. A <strong>gemset</strong>
-is an isolated space to install gems. By providing each project with
-their own gemset, you can be sure that the right version of a gem is
-loaded.</p>
-<p>While <strong>gs</strong> handles the gemset, <strong>dep</strong> keeps track of the dependencies
-for your project, making sure that all the dependencies are met.</p>
-<p>To install <strong>gs</strong> and <strong>dep</strong>, use the <code>gem install</code> command:</p>
-<pre><code>$ gem install gs
-$ gem install dep
-</code></pre><p>Before installing the dependencies of this project, you need a gemset.
-Creating one is as easy as typing:</p>
-<pre><code>$ gs init
-</code></pre><p>This command does two things. First, it creates a directory <code>.gs</code>, where
-Rubygems will install the dependencies. Secondly, it starts a shell session
-and set the <code>.gs</code> folder as the path where Ruby will look for gems.</p>
-<p>Now that we created a local gemset, it&#39;s time to install the dependencies
-for our project. <strong>dep</strong> uses a <code>.gems</code> file to keep track of the required
-dependencies for the application. This file lists the gems with their
-version numbers.</p>
-<p>In our application&#39;s folder, you will find the <code>.gems</code> file that contains
-the dependencies we&#39;ll use in this book. We&#39;ll talk more about each gem
-later.</p>
-<pre><code>cuba -v 3.1.1
-cuba-contrib -v 3.1.0
-cutest -v 1.2.1
-ohm -v 2.0.0
-mote -v 1.1.2
-scrivener -v 0.2.0
-rack-protection -v 1.5.3
-rack-test -v 0.6.2
-shield -v 2.1.0
-shotgun -v 0.9
-</code></pre><p>Finally, we need to install the gems by running:</p>
-<pre><code>$ dep install
-</code></pre><p>This simply does a <code>gem install</code> for each dependency on the list. <strong>dep</strong>
-also has features for adding and removing dependencies. To read more about
-<strong>dep</strong>, visit their <a href="http://twpil.github.io/dep/" target="_blank">home page</a>.</p>
-<p><strong>NOTE:</strong> It&#39;s important to mention that together, <strong>gs</strong> and <strong>dep</strong>,
-only have 200 lines of code and don&#39;t add any memory footprint to your
-application.</p>
-
-                    
-                    </section>
-                
                 </div>
             </div>
         </div>
 
         
-        <a href="../setting_the_road/structure.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
+        <a href="../welcome_aboard/hello_cuba.html" class="navigation navigation-prev"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../welcome_aboard/README.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
+        <a href="../welcome_aboard/breaking_down_the_syntax.html" class="navigation navigation-next"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
