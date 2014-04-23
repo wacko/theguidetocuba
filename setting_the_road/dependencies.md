@@ -82,10 +82,9 @@ Finally, we need to install the gems by running:
 $ dep install
 ```
 
-This simply does a `gem install` for each dependency on the list.
-
-**dep** also has features for adding and removing dependencies.
-To read more about **dep**, visit their [home page](http://twpil.github.io/dep/).
+This simply does a `gem install` for each dependency on the list. **dep**
+also has features for adding and removing dependencies. To read more about
+**dep**, visit their [home page](http://twpil.github.io/dep/).
 
 **NOTE:** It's important to mention that together, **gs** and **dep**,
 only have 200 lines of code and don't add any memory footprint to your
