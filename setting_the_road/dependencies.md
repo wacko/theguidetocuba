@@ -61,7 +61,7 @@ version numbers.
 
 In our application's folder, you will find the `.gems` file that contains
 the dependencies we'll use in this book. We'll talk more about each gem
-later in this book.
+later.
 
 ```
 cuba -v 3.1.1
