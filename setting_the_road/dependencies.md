@@ -57,9 +57,11 @@ and set the `.gs` folder as the path where Ruby will look for gems.
 Now that we created a local gemset, it's time to install the dependencies
 for our project. **dep** uses a `.gems` file to keep track of the required
 dependencies for the application. This file lists the gems with their
-version numbers. In our application's folder, you will find the `.gems`
-file that contains the dependencies we'll use in this book. We'll talk
-more about each gem later in this book.
+version numbers.
+
+In our application's folder, you will find the `.gems` file that contains
+the dependencies we'll use in this book. We'll talk more about each gem
+later in this book.
 
 ```
 cuba -v 3.1.1
