@@ -36,7 +36,7 @@ application from scratch, whether you are an experienced programmer or not. ">
     </head>
     <body>
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398148597058">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1398216133584">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -158,20 +158,40 @@ application from scratch, whether you are an experienced programmer or not. ">
                     <section class="normal" id="section-gitbook_3">
                     
                         <h1 id="managing-dependencies">Managing Dependencies</h1>
-<p>In every web application, there are common tasks that you need to do.
-For example, authenticate users or query a database. Libraries are useful
-for not reinventing the wheel. In Ruby, they are often referred to as
+<p>In every web application, there are common tasks that you need to do
+(e.g authenticate users or query a database). Libraries are useful for
+not reinventing the wheel, and in Ruby they are often referred to as
 <strong>gems</strong>.</p>
-<p>Ruby uses <a href="https://rubygems.org/" target="_blank">Rubygems</a> to distribute and ease the
-installation of them. So, installing Cuba is as easy as typing
+<p>Ruby uses <a href="https://rubygems.org/" target="_blank">Rubygems</a> to distribute them and to
+ease the installation. Installing Cuba is as easy as typing
 <code>gem install cuba</code> in the command line.</p>
-<h2 id="the-ugly-part">The Ugly Part</h2>
 <p>Even though <strong>Rubygems</strong> is useful when installing gems, it has its
-limitations. Unfortunately, Rubygems installs all gems globally and
-because Ruby only loads one version of a gem at a time, you will need
-to check if you&#39;re not overlapping versions between projects.</p>
-<p>Also, another problem that is not solved is keeping track of all the
-gems you need for your project and the right version of each one.</p>
+limitations. Unfortunately, it installs all gems globally. It means
+that if you have different versions of a gem installed, you have to
+make sure that you require the right version for your project.</p>
+<p><a href="http://bundler.io/" target="_blank">Bundler</a> is one of the most used tools to solve
+this problem. It has approximately ~10k lines of code, that&#39;s more than
+all the dependencies of this project put together. Because of this
+complexity, we&#39;ll use a different approach in this book.</p>
+<h2 id="-the-right-way-">&quot;The Right Way&quot;</h2>
+<p>Back to the original problem, we need a way to keep track of the
+dependencies and install the right version of each one. This is where
+<a href="https://github.com/soveran/gs" target="_blank">gs</a> and <a href="https://github.com/cyx/dep" target="_blank">dep</a>
+come to the rescue.</p>
+<p>With <strong>gs</strong> you can create a <strong>gemset</strong> for each project. A <strong>gemset</strong>
+is an isolated space to install gems. By providing each project with
+their own gemset, you can be sure that the right version of a gem is
+loaded.</p>
+<p>While <strong>gs</strong> handles the gemset, <strong>dep</strong> keeps track of the dependencies
+for your project, making it easier to install them.</p>
+<p>To install <strong>gs</strong> and <strong>dep</strong>, use the <code>gem install</code> command:</p>
+<pre><code class="lang-html">$ gem install gs
+$ gem install dep
+</code></pre>
+<p>Before installing the dependencies of this project, you need a gemset.
+Creating one is as easy as typing:</p>
+<pre><code class="lang-html">$ gs init
+</code></pre>
 
                     
                     </section>
