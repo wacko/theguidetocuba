@@ -34,11 +34,11 @@ their own gemset, you can be sure that the right version of a gem is
 loaded.
 
 While **gs** handles the gemset, **dep** keeps track of the dependencies
-for your project, making it easier to install them.
+for your project, making sure that all the dependencies are met.
 
 To install **gs** and **dep**, use the `gem install` command:
 
-```html
+```
 $ gem install gs
 $ gem install dep
 ```
@@ -46,6 +46,45 @@ $ gem install dep
 Before installing the dependencies of this project, you need a gemset.
 Creating one is as easy as typing:
 
-```html
+```
 $ gs init
 ```
+
+This command does two things. First, it creates a directory `.gs`, where
+Rubygems will install the dependencies. Secondly, it starts a shell session
+and set the `.gs` folder as the path where Ruby will look for gems.
+
+Now that we created a local gemset, it's time to install the dependencies
+for our project. **dep** uses a `.gems` file to keep track of the required
+dependencies for the application. This file lists the gems with their
+version numbers. In our application's folder, you will find the `.gems`
+file that contains the dependencies we'll use in this book. We'll talk
+more about each gem later in this book.
+
+```
+cuba -v 3.1.1
+cuba-contrib -v 3.1.0
+cutest -v 1.2.1
+ohm -v 2.0.0
+mote -v 1.1.2
+scrivener -v 0.2.0
+rack-protection -v 1.5.3
+rack-test -v 0.6.2
+shield -v 2.1.0
+shotgun -v 0.9
+```
+
+Finally, we need to install the gems by running:
+
+```
+$ dep install
+```
+
+This simply does a `gem install` for each dependency on the list.
+
+**dep** also has features for adding and removing dependencies.
+To read more about **dep**, visit their [home page](http://twpil.github.io/dep/).
+
+**NOTE:** It's important to mention that together, **gs** and **dep**,
+only have 200 lines of code and don't add any memory footprint to your
+application.
