@@ -5,11 +5,15 @@ Now that we know how to build a minimal Cuba application, let's take a deeper
 look at the syntax:
 
 ```ruby
+require "cuba"
+
 Cuba.define do
   on root do
-    res.write("Hello world!")
+    res.write("Hello, Cuba!")
   end
 end
+
+run(Cuba)
 ```
 
 In this short example, we can identify three methods that appear in
@@ -43,3 +47,5 @@ explicitly handle the server response.
 Back to our example, we use the `write` method to set the response body
 with the greeting message. By default, Cuba sets the response status code
 to `200`, but if no routes match the request, it issues a `404`.
+
+TODO: Explain rack (rackup).
