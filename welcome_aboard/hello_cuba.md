@@ -1,65 +1,38 @@
 Hello Cuba!
 ===========
 
-Now that the dependencies of our project are correctly installed, it's
-time to see how Cuba works.
+Before getting started, we have to install Cuba. Use the `gem` command:
 
-time to create the classic **Hello World!** application.
+```
+$ gem install cuba
+```
 
-1 .- Parte 1
+Now that Cuba is installed, it's easy to create a Cuba application. Open
+your text editor of preference and create a file called `app.ru` with the
+following code:
 
 ```ruby
 require "cuba"
-require "cuba/mote"
-require "ohm"
-require "rack/protection"
-require "shield"
-require "scrivener"
-```
 
-2 .- Parte 2
-
-```ruby
-APP_KEY = ENV.fetch("APP_KEY")
-APP_SECRET = ENV.fetch("APP_SECRET")
-REDIS_URL = ENV.fetch("REDIS_URL")
-```
-
-3.- Parte 3
-
-```ruby
-Cuba.plugin(Cuba::Mote)
-Cuba.plugin(Shield::Helpers)
-# ...
-# ...
-Ohm.redis = Redic.new(REDIS_URL)
-```
-
-4 .- Parte 4.
-
-```
-Dir["./models/**/*.rb"].each  { |f| require(f) }
-Dir["./filters/**/*.rb"].each { |f| require(f) }
-Dir["./helpers/**/*.rb"].each { |f| require(f) }
-Dir["./routes/**/*.rb"].each  { |f| require(f) }
-```
-
-5 .- Parte 5.
-
-```ruby
-```
-
-Creating a Cuba application is pretty easy. Open your text editor and
-enter the code in [Example 1-3](#example13).
-
-```ruby
 Cuba.define do
   on root do
-    res.write "Hello world!"
+    res.write("Hello, Cuba!")
   end
 end
-```
-As you can see, the code is very readable. We will talk about the details later on.
 
-You actually have a functional "Hello World" Cuba application already.
-To see it working, you will need to start a web server. Next chapter.
+run(Cuba)
+```
+
+You already have a functional Cuba application! To see it in action, type
+`rackup app.ru` in the command line.
+
+![rackup](rackup.png)
+
+This fired up **WEBrick**, a webserver built into Ruby by default. Now,
+open a browser and navigate to <http://localhost:9292/>. It should show
+a greeting message as shown below:
+
+![hello](hello.png)
+
+As you can see, the syntax is very readable. We'll discuss the details
+in the next chapter.
