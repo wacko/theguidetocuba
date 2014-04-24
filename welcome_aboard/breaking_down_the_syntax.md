@@ -15,23 +15,25 @@ end
 In this short example, we can identify three methods that appear in
 all Cuba applications: `define`, `on` and `res`.
 
-As the name suggests, `Cuba#define` allows us to define a Cuba app
-through a block, that gives us some objects like `req`, `res` and
-`env`, and a couple of helper methods to manage the flow of our
-application, like the handy `on`.
+As the name suggests, `Cuba#define` allows us to define a Cuba
+application through a block. Inside, we have some objects like
+`req`, `res` and `env`, and a couple of helper methods to manage
+the flow of our application, like the handy `on`.
 
 `Cuba#on` is responsible for managing the control flow of our
 application and is the cornerstone of defining routes. If you're
-used to the `if/else/case` statements, on will be very easy to get.
-**How it works?** It executes the given block only if all of the given
-arguments evaluate to `true`.
+used to the `if`, `else` and `case` statements in Ruby, `on` will be
+very easy to grasp. **How does it work?** It executes the given block
+only if all of the given arguments evaluate to `true`.
 
 Going back to the above example, we can see that `on` expects `root` to
-be `true` in order to write the "Hello, Cuba!" message. `root` returns
+be `true` in order to write the **Hello, Cuba!** message. `root` returns
 `true` only if the accessed path is the root of the application (`"/"` or
 `""`). That's why every time we enter to <http://localhost:9393/>, we see
-the welcome message. It's possible to create multiple `on` blocks or create
-nested ones, but we will discuss these features later.
+the welcome message.
+
+It's possible to create multiple `on` blocks but we will discuss
+this later. TODO: Explain more about on.
 
 Finally, there is the `res` object that not only represents the response
 object, but also provides us with methods for setting the response status,
