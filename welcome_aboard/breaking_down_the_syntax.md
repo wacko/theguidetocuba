@@ -7,7 +7,7 @@ look at the syntax:
 ```ruby
 Cuba.define do
   on root do
-    res.write "Hello world!"
+    res.write("Hello world!")
   end
 end
 ```
