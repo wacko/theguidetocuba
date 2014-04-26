@@ -37,7 +37,7 @@ be `true` in order to write the **Hello, Cuba!** message. `root` returns
 the welcome message.
 
 It's possible to create multiple `on` blocks but we will discuss
-this later. TODO: Explain more about on.
+this later.
 
 Finally, there is the `res` object that not only represents the response
 object, but also provides us with methods for setting the response status,
@@ -47,5 +47,3 @@ explicitly handle the server response.
 Back to our example, we use the `write` method to set the response body
 with the greeting message. By default, Cuba sets the response status code
 to `200`, but if no routes match the request, it issues a `404`.
-
-TODO: Explain rack (rackup).
