@@ -1,6 +1,8 @@
 The Guide to Cuba
 =================
 
+**NOTE:** Currently in development.
+
 This book will teach you the basics of [Cuba](http://cuba.is/), the Ruby
 microframework. This book is intended for everyone who wants to get started with a Cuba
 application from scratch, whether you are an experienced programmer or not.
