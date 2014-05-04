@@ -1,17 +1,17 @@
 CACHE MANIFEST
-# Revision 1399224454772
+# Revision 1399224893453
 
 CACHE:
 welcome_aboard/README.html
 welcome_aboard/breaking_down_the_syntax.html
-welcome_aboard/cuba.html
 welcome_aboard/hello_cuba.html
 welcome_aboard/rack_and_roll.html
+welcome_aboard/what_is_cuba.html
 index.html
 assumptions/README.html
 setting_the_road/README.html
-setting_the_road/dependencies.html
-setting_the_road/structure.html
+setting_the_road/managing_dependencies.html
+setting_the_road/structuring_the_application.html
 setting_the_road/up_and_running.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
@@ -49,8 +49,8 @@ gitbook/jsrepl/sandbox.html
 gitbook/jsrepl/sandbox.js
 gitbook/print.css
 gitbook/style.css
-gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 gitbook/plugins/gitbook-plugin-mixpanel/plugin.js
+gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 
 NETWORK:
 *
