@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1399169228312">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.2" data-basepath=".." data-revision="1399169517422">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -259,14 +259,14 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_34">
+                    <section class="normal" id="section-gitbook_74">
                     
                         <h1 id="hello-cuba-">Hello Cuba!</h1>
 <p>Before getting started, we have to install Cuba. Use the <code>gem</code> command:</p>
 <pre><code>$ gem install cuba
 </code></pre><p>Now that Cuba is installed, it&#39;s easy to create a Cuba application. Open
-your text editor of preference and create a file called <code>app.ru</code> with the
-following code:</p>
+your text editor of preference and create a file called <code>config.ru</code> with
+the following code:</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"cuba"</span>
 
 <span class="hljs-constant">Cuba</span>.define <span class="hljs-keyword">do</span>
@@ -278,7 +278,7 @@ following code:</p>
 run(<span class="hljs-constant">Cuba</span>)
 </code></pre>
 <p>You already have a functional Cuba application! To see it in action, type
-<code>rackup app.ru</code> in the command line.</p>
+<code>rackup config.ru</code> in the command line.</p>
 <p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/rackup.png" alt="rackup"></p>
 <p>This fired up <strong>WEBrick</strong>, a webserver built into Ruby by default. Now,
 open a browser and navigate to <a href="http://localhost:9292/" target="_blank">http://localhost:9292/</a>. It should show
