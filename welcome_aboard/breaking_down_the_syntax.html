@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1399144241240">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.3" data-basepath=".." data-revision="1399169228312">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -259,46 +259,40 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_32">
                     
                         <h1 id="breaking-down-the-syntax">Breaking Down the Syntax</h1>
 <p>Now that we know how to build a minimal Cuba application, let&#39;s take a deeper
-look at the syntax:</p>
+look at the syntax. We can split this example into three parts:</p>
+<p>First, we require Cuba to load the gem and get access to
+its functionality.</p>
 <pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"cuba"</span>
-
-<span class="hljs-constant">Cuba</span>.define <span class="hljs-keyword">do</span>
+</code></pre>
+<p>Then we can identify four methods that appear in most Cuba
+applications: <code>define</code>, <code>on</code>, <code>root</code> and <code>res</code>.</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Cuba</span>.define <span class="hljs-keyword">do</span>
   on root <span class="hljs-keyword">do</span>
     res.write(<span class="hljs-string">"Hello, Cuba!"</span>)
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
-
-run(<span class="hljs-constant">Cuba</span>)
 </code></pre>
-<p>In this short example, we can identify three methods that appear in
-all Cuba applications: <code>define</code>, <code>on</code> and <code>res</code>.</p>
-<p>As the name suggests, <code>Cuba#define</code> allows us to define a Cuba
-application through a block. Inside, we have some objects like
-<code>req</code>, <code>res</code> and <code>env</code>, and a couple of helper methods to manage
-the flow of our application, like the handy <code>on</code>.</p>
-<p><code>Cuba#on</code> is responsible for managing the control flow of our
-application and is the cornerstone of defining routes. If you&#39;re
-used to the <code>if</code>, <code>else</code> and <code>case</code> statements in Ruby, <code>on</code> will be
-very easy to grasp. <strong>How does it work?</strong> It executes the given block
-only if all of the given arguments evaluate to <code>true</code>.</p>
-<p>Going back to the above example, we can see that <code>on</code> expects <code>root</code> to
-be <code>true</code> in order to write the <strong>Hello, Cuba!</strong> message. <code>root</code> returns
-<code>true</code> only if the accessed path is the root of the application (<code>&quot;/&quot;</code> or
-<code>&quot;&quot;</code>). That&#39;s why every time we enter to <a href="http://localhost:9393/" target="_blank">http://localhost:9393/</a>, we see
-the welcome message.</p>
-<p>It&#39;s possible to create multiple <code>on</code> blocks but we will discuss
-this later.</p>
-<p>Finally, there is the <code>res</code> object that not only represents the response
-object, but also provides us with methods for setting the response status,
-the headers and the body. This is a killer feature of Cuba, because we can
-explicitly handle the server response.</p>
-<p>Back to our example, we use the <code>write</code> method to set the response body
-with the greeting message. By default, Cuba sets the response status code
-to <code>200</code>, but if no routes match the request, it issues a <code>404</code>.</p>
+<ul>
+<li><p><code>define</code> allows us to create an application through a block.</p>
+</li>
+<li><p><code>on</code> executes a given block if the passed conditions evaluate to <code>true</code>.</p>
+</li>
+<li><p><code>root</code> returns <code>true</code> if the accessed path is the root of the
+application (<code>&quot;/&quot;</code> or <code>&quot;&quot;</code>).</p>
+</li>
+<li><p><code>res</code> handles the server response. In this case, we use the <code>write</code>
+method to set the response body with the greeting message.</p>
+</li>
+</ul>
+<p>Finally, we call <code>run</code> to start the application.</p>
+<pre><code class="lang-ruby">run(<span class="hljs-constant">Cuba</span>)
+</code></pre>
+<p><code>run</code> is a method that comes with Rack. Don&#39;t worry if you don&#39;t
+understand what Rack is just yet, we&#39;ll discuss it in the next chapter.</p>
 
                     
                     </section>
