@@ -1,11 +1,12 @@
 CACHE MANIFEST
-# Revision 1399169517422
+# Revision 1399169793305
 
 CACHE:
 welcome_aboard/README.html
 welcome_aboard/breaking_down_the_syntax.html
 welcome_aboard/cuba.html
 welcome_aboard/hello_cuba.html
+welcome_aboard/rack_and_roll.html
 index.html
 assumptions/README.html
 setting_the_road/README.html
