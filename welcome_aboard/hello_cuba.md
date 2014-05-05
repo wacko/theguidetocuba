@@ -28,9 +28,8 @@ You already have a functional Cuba application! To see it in action, type
 
 ![rackup](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/rackup.png)
 
-This fired up **WEBrick**, a webserver built into Ruby by default. Now,
-open a browser and navigate to <http://localhost:9292/>. It should show
-a greeting message as shown below:
+Now open a browser and navigate to <http://localhost:9292/>. It should
+show a greeting message as shown below:
 
 ![hello](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/hello.png)
 
