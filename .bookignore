@@ -3,3 +3,4 @@ assets/
 LICENSE
 publish
 book.json
+.DS_Store
