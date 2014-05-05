@@ -2,3 +2,4 @@ assets/
 .bookignore
 LICENSE
 publish
+book.json
