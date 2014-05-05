@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.4" data-basepath=".." data-revision="1399297498859">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="2.4" data-basepath=".." data-revision="1399309393794">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -278,21 +278,20 @@ servers supporting Ruby and Ruby frameworks. Without Rack, Cuba would have
 to implement its own handler for each web server.</p>
 <p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/rack.png" alt="graph"></p>
 <p>You didn&#39;t notice yet but we already used Rack. We used <code>rackup</code>, one of
-the tools that comes with Rack, to run our <strong>&quot;Hello Cuba!&quot;</strong> application.
-When you start an application with <code>rackup</code>, it figures out which server
-you have available.</p>
-<p>When we executed <code>rackup config.ru</code>, it fired up <strong>WEBrick</strong>, a web server
+the tools that comes with Rack, to run our <strong>&quot;Hello Cuba!&quot;</strong> application.</p>
+<p>To use <code>rackup</code>, you need to supply a config file (by convention it uses
+the <em>.ru</em> extension). This file connects the Rack interface with your
+application through the <code>run</code> method. This method receives an object that
+returns a Rack response. In our case, that object is Cuba:</p>
+<pre><code class="lang-ruby">run(<span class="hljs-constant">Cuba</span>)
+</code></pre>
+<p><code>rackup</code> also figures out which server you have available. When we
+executed <code>rackup config.ru</code>, it fired up <strong>WEBrick</strong>, a web server
 built into Ruby by default.</p>
 <pre><code>$ rackup config.ru
 [2014-05-03 23:10:57] INFO  WEBrick 1.3.1
 ...
-</code></pre><p>To use <code>rackup</code>, you need a config file with the <code>.ru</code> extension. In this
-file you specify which object handles the request and response objects
-that are created by the Rack interface.</p>
-<p>That&#39;s what we did inside our <code>config.ru</code> file. The last line tells Rack
-that</p>
-<pre><code class="lang-ruby">run(<span class="hljs-constant">Cuba</span>)
-</code></pre>
+</code></pre><p>To read more about Rack, visit their <a href="http://rack.github.io/" target="_blank">home page</a>.</p>
 
                     
                     </section>
