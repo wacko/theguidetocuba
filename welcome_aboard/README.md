@@ -8,3 +8,4 @@ creation of a simple application. After reading this, you will know:
 * How to install Cuba.
 * Create a **"Hello world!"** application.
 * The basic principles behind Cuba.
+* The basics of Rack.

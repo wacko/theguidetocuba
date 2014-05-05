@@ -11,10 +11,18 @@ to implement its own handler for each web server.
 
 You didn't notice yet but we already used Rack. We used `rackup`, one of
 the tools that comes with Rack, to run our **"Hello Cuba!"** application.
-When you start an application with `rackup`, it figures out which server
-you have available.
 
-When we executed `rackup config.ru`, it fired up **WEBrick**, a web server
+To use `rackup`, you need to supply a config file (by convention it uses
+the *.ru* extension). This file connects the Rack interface with your
+application through the `run` method. This method receives an object that
+returns a Rack response. In our case, that object is Cuba:
+
+```ruby
+run(Cuba)
+```
+
+`rackup` also figures out which server you have available. When we
+executed `rackup config.ru`, it fired up **WEBrick**, a web server
 built into Ruby by default.
 
 ```
@@ -23,13 +31,4 @@ $ rackup config.ru
 ...
 ```
 
-To use `rackup`, you need a config file with the `.ru` extension. In this
-file you specify which object handles the request and response objects
-that are created by the Rack interface.
-
-That's what we did inside our `config.ru` file. The last line tells Rack
-that
-
-```ruby
-run(Cuba)
-```
+To read more about Rack, visit their [home page](http://rack.github.io/).

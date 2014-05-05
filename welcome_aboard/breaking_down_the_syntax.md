@@ -32,11 +32,11 @@ end
 * `res` handles the server response. In this case, we use the `write`
   method to set the response body with the greeting message.
 
-Finally, we call `run` to start the application.
+Finally, the last line connects our application with Rack.
 
 ```ruby
 run(Cuba)
 ```
 
-`run` is a method that comes with Rack. Don't worry if you don't
-understand what Rack is just yet, we'll discuss it in the next chapter.
+Don't worry if you don't understand what Rack is just yet, we'll discuss
+it in the next chapter.
