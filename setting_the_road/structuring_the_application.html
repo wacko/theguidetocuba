@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.1" data-basepath=".." data-revision="1399418464614">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.1" data-basepath=".." data-revision="1399419377961">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -272,13 +272,14 @@
                     <section class="normal" id="section-gitbook_5">
                     
                         <h1 id="structuring-the-application">Structuring the Application</h1>
-<p>Cuba gives you a lot of freedom to choose the architecture of your
-application. In this guide, we will use a template called <a href="https://github.com/frodsan/app" target="_blank">app</a>.</p>
-<p>To start using the template, open up a command line prompt and type:</p>
+<p>With Cuba you have a lot of freedom to choose the architecture
+of your application. In this book, we will use a template called
+<a href="https://github.com/frodsan/app" target="_blank">app</a>. To start using it, open up
+a command line prompt and type:</p>
 <pre><code>$ git clone git@github.com:frodsan/app.git twitter
-</code></pre><p>This will create a <code>twitter</code> directory with the files and folders to get
+</code></pre><p>This will create a <em>twitter</em> directory with the files and folders for
 a minimal functional application.</p>
-<p>After you download the template, switch to the application&#39;s directory.</p>
+<p>After the download is completed, switch to the <em>twitter</em> directory.</p>
 <pre><code>$ cd twitter
 </code></pre><p>From now on, you must execute all the command line instructions from this
 directory. For example:</p>
@@ -286,8 +287,8 @@ directory. For example:</p>
 README.md    config.ru    helpers    makefile    public    test
 app.rb       filters      mails      models      routes    views
 </code></pre><p>This table shows a basic overview of the files and folders that make up
-the structure of the application. We&#39;ll learn more about these files and
-directories throughout the rest of this book.</p>
+the structure of the application. We&#39;ll learn more about these throughout
+the rest of this book.</p>
 <table>
 <thead>
 <tr>
@@ -298,7 +299,7 @@ directories throughout the rest of this book.</p>
 <tbody>
 <tr>
 <td>.gems</td>
-<td>A list of the dependencies for the application. For more information, read <a href="/theguidetocuba/setting_the_road/dependencies.html">&quot;Managing Dependencies&quot;</a>.</td>
+<td>A list of the dependencies for the application.</td>
 </tr>
 <tr>
 <td>app.rb</td>
@@ -306,11 +307,11 @@ directories throughout the rest of this book.</p>
 </tr>
 <tr>
 <td>env.sh</td>
-<td>This file contains a list of sensitive configurations (e.g. the database&#39;s url). The application loads these configurations as environment variables. Later, you can acces them in the code through the <code>ENV</code> accessor.</td>
+<td>Contains a list of sensitive configurations (e.g. the databases url).</td>
 </tr>
 <tr>
 <td>config.ru</td>
-<td>Rack configuration file for Rack based servers used to start the application.</td>
+<td>Rack configuration file.</td>
 </tr>
 <tr>
 <td>filters/</td>
@@ -326,7 +327,7 @@ directories throughout the rest of this book.</p>
 </tr>
 <tr>
 <td>makefile</td>
-<td>This file contains a series of tasks that can be run from the command line. E.g. tasks for running the server, testing or interacting with the application.</td>
+<td>This file contains a series of tasks that can be run from the command line.</td>
 </tr>
 <tr>
 <td>models/</td>
@@ -338,7 +339,7 @@ directories throughout the rest of this book.</p>
 </tr>
 <tr>
 <td>routes/</td>
-<td>A Cuba application is composed by other miniature applications that add functionality to the main one. The ability to mount applications is one of the most powerful features of Cuba. This folder contains these miniature applications.</td>
+<td>This folder contains  miniature applications that add functionality to the main one.</td>
 </tr>
 <tr>
 <td>test/</td>
