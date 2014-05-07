@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.3" data-basepath=".." data-revision="1399430948780">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.3" data-basepath=".." data-revision="1399495305481">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -273,16 +273,19 @@
 <p>Now that we&#39;ve installed the dependencies, it&#39;s time to see how our
 minimal application looks.</p>
 <p>To get it up and running, we need to create a file with some
-configurations. Go to the command line and type:</p>
-<pre><code>$ make setup
-echo APP_KEY=$(basename $(pwd)) &gt;&gt; env.sh
-echo APP_SECRET=$(make secret | grep -v &#39;ruby&#39;) &gt;&gt; env.sh
-echo REDIS_URL=redis://127.0.0.1:6379/ &gt;&gt; env.sh
-</code></pre><p>As you can see, this created a file called <em>env.sh</em>. For now, it&#39;s enough
+configurations. Go to the command line and type <code>make setup</code>.</p>
+<p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/setup.png" alt="setup"></p>
+<p>As you can see, this created a file called <em>env.sh</em>. For now, it&#39;s enough
 for you to know that this file contains sensitive configurations for the
 application. We&#39;ll discuss this in more detail later.</p>
 <p>To see the application in action, type <code>make server</code> in the command line.</p>
 <p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/shotgun.png" alt="shotgun"></p>
+<p>Unlike before, we&#39;re now using <em>shotgun</em> instead of <em>rackup</em>. <em>Shotgun</em>
+is a gem that reloads the application for every request. That&#39;s great for
+development because we don&#39;t need to restart the server every time that
+we change the application. Now navigate to <a href="http://localhost:9393/" target="_blank">http://localhost:9393/</a>. It
+should show the Cuba welcome page.</p>
+<p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/home.png" alt="home"></p>
 
                     
                     </section>
