@@ -27,7 +27,7 @@ built into Ruby by default.
 
 ```
 $ rackup config.ru
-[2014-05-03 23:10:57] INFO  WEBrick 1.3.1
+[2014-05-06 23:37:23] INFO  WEBrick 1.3.1
 ...
 ```
 
