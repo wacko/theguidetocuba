@@ -1,3 +1,8 @@
 {
-    "plugins": ["-mixpanel", "-mathjax"]
+    "plugins": ["-mixpanel", "-mathjax"],
+    "links": {
+        "home": false,
+        "about": false,
+        "contribute": false
+    }
 }
