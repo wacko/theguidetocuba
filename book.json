@@ -3,6 +3,7 @@
     "links": {
         "home": false,
         "about": false,
+        "issues": false,
         "contribute": false
     }
 }
