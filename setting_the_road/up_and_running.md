@@ -20,7 +20,7 @@ To see the application in action, type `make server` in the command line.
 Unlike before, we're now using *shotgun* instead of *rackup*. *Shotgun*
 is a gem that reloads the application for every request. That's great for
 development because we don't need to restart the server every time that
-we change the application. Now navigate to <http://localhost:9393/>. It
-should show the Cuba welcome page.
+we change the application. Now navigate to <http://localhost:9393/>. You
+should see the Cuba welcome page.
 
 ![home](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/home.png)
