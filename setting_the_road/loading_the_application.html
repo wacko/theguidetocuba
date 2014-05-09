@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Managing Dependencies | The Guide to Cuba</title>
+        <title>Loading the Application | The Guide to Cuba</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,11 @@ application from scratch, whether you are an experienced programmer or not.">
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../setting_the_road/up_and_running.html" />
         
-        
-        <link rel="prev" href="../setting_the_road/structuring_the_application.html" />
+        <link rel="prev" href="../setting_the_road/up_and_running.html" />
         
 
-        <meta property="og:title" content="Managing Dependencies | The Guide to Cuba">
+        <meta property="og:title" content="Loading the Application | The Guide to Cuba">
         <meta property="og:site_name" content="The Guide to Cuba">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -44,7 +42,7 @@ application from scratch, whether you are an experienced programmer or not.">
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.2" data-basepath=".." data-revision="1399669130445">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.4" data-basepath=".." data-revision="1399669130445">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -232,7 +230,7 @@ application from scratch, whether you are an experienced programmer or not.">
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 81.81818181818181%;min-width: 72.72727272727273%;"></div>
+        <div class="inner" style="width: 100%;min-width: 90.9090909090909%;"></div>
     </div>
     <div class="chapters">
     
@@ -256,78 +254,68 @@ application from scratch, whether you are an experienced programmer or not.">
     
         <a href="../setting_the_road/managing_dependencies.html" title="Managing Dependencies" class="chapter done " data-progress="3.2" style="left: 81.81818181818181%;"></a>
     
-        <a href="../setting_the_road/up_and_running.html" title="Up and Running" class="chapter  " data-progress="3.3" style="left: 90.9090909090909%;"></a>
+        <a href="../setting_the_road/up_and_running.html" title="Up and Running" class="chapter done " data-progress="3.3" style="left: 90.9090909090909%;"></a>
     
-        <a href="../setting_the_road/loading_the_application.html" title="Loading the Application" class="chapter  " data-progress="3.4" style="left: 100%;"></a>
+        <a href="../setting_the_road/loading_the_application.html" title="Loading the Application" class="chapter done " data-progress="3.4" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_4">
                     
-                        <h1 id="managing-dependencies">Managing Dependencies</h1>
-<p>In every web application, there are common tasks that you need to do
-(e.g authenticate users or query a database). Libraries are useful for
-not reinventing the wheel, and in Ruby they are often referred to as
-<strong>gems</strong>.</p>
-<p>Ruby uses <a href="https://rubygems.org/" target="_blank">Rubygems</a> to distribute them and to
-ease the installation. Installing Cuba is as easy as typing
-<code>gem install cuba</code> in the command line.</p>
-<p>Even though <strong>Rubygems</strong> is useful when installing gems, it has its
-limitations. Unfortunately, it installs all gems globally. It means
-that if you have different versions of a gem installed, you have to
-make sure that you require the right version for your project.</p>
-<p><a href="http://bundler.io/" target="_blank">Bundler</a> is one of the most used tools to solve
-this problem. It has approximately ~10k lines of code, that&#39;s more than
-all the dependencies of this project put together. Because of this
-complexity, we&#39;ll use a different approach in this book.</p>
-<h2 id="-the-right-way-">&quot;The Right Way&quot;</h2>
-<p>Back to the original problem, we need a way to keep track of the
-dependencies and install the right version of each one. This is where
-<a href="https://github.com/soveran/gs" target="_blank">gs</a> and <a href="https://github.com/cyx/dep" target="_blank">dep</a>
-come to the rescue.</p>
-<p>With <strong>gs</strong> you can create a <strong>gemset</strong> for each project. A <strong>gemset</strong>
-is an isolated space to install gems. By providing each project with
-their own gemset, you can be sure that the right version of a gem is
-loaded.</p>
-<p>While <strong>gs</strong> handles the gemset, <strong>dep</strong> keeps track of the dependencies
-for your project, making sure that all the dependencies are met.</p>
-<p>To install <strong>gs</strong> and <strong>dep</strong>, use the <code>gem install</code> command:</p>
-<pre><code>$ gem install gs
-$ gem install dep
-</code></pre><p>Before installing the dependencies of this project, you need a gemset.
-Creating one is as easy as typing:</p>
-<pre><code>$ gs init
-</code></pre><p>This command does two things. First, it creates a directory <code>.gs</code>, where
-Rubygems will install the dependencies. Secondly, it starts a shell session
-and set the <code>.gs</code> folder as the path where Ruby will look for gems.</p>
-<p>Now that we created a local gemset, it&#39;s time to install the dependencies
-for our project. <strong>dep</strong> uses a <code>.gems</code> file to keep track of the required
-dependencies for the application. This file lists the gems with their
-version numbers.</p>
-<p>In our application&#39;s folder, you will find the <code>.gems</code> file that contains
-the dependencies we&#39;ll use in this book. We&#39;ll talk more about each gem
-later.</p>
-<pre><code>cuba -v 3.1.1
-cuba-contrib -v 3.1.0
-cutest -v 1.2.1
-ohm -v 2.0.0
-mote -v 1.1.2
-scrivener -v 0.2.0
-rack-protection -v 1.5.3
-rack-test -v 0.6.2
-shield -v 2.1.0
-shotgun -v 0.9
-</code></pre><p>Finally, we need to install the gems by running:</p>
-<pre><code>$ dep install
-</code></pre><p>This simply does a <code>gem install</code> for each dependency on the list. <strong>dep</strong>
-also has features for adding and removing dependencies. To read more about
-<strong>dep</strong>, visit their <a href="http://twpil.github.io/dep/" target="_blank">home page</a>.</p>
-<p><strong>NOTE:</strong> It&#39;s important to mention that together, <strong>gs</strong> and <strong>dep</strong>,
-only have 200 lines of code and don&#39;t add any memory footprint to your
-application.</p>
+                        <h1 id="loading-the-application">Loading the Application</h1>
+<p>In this section, we&#39;ll see how the <em>app.rb</em> file initializes the
+application. This file is important in the boot process because it
+defines everything the application needs in order to run. We&#39;ll walk
+step by step through this file so you understand everything that happens
+under the hood.</p>
+<p>First, we require the gems we&#39;ll use in this project.</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"cuba"</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">"cuba/mote"</span>
+...
+<span class="hljs-keyword">require</span> <span class="hljs-string">"scrivener"</span>
+</code></pre>
+<p>Then we define some constants that, for example, are used to connect to a
+database or to check cookie data integrity.</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">APP_KEY</span> = <span class="hljs-constant">ENV</span>.fetch(<span class="hljs-string">"APP_KEY"</span>)
+<span class="hljs-constant">APP_SECRET</span> = <span class="hljs-constant">ENV</span>.fetch(<span class="hljs-string">"APP_SECRET"</span>)
+<span class="hljs-constant">REDIS_URL</span> = <span class="hljs-constant">ENV</span>.fetch(<span class="hljs-string">"REDIS_URL"</span>)
+</code></pre>
+<p>Because these are sensitive configurations, we use environment variables
+instead of putting them directly into the code. To load these values into
+our environment, we read them from the <em>env.sh</em> file when starting the
+server. Then, we use the <code>ENV</code> object to access them.</p>
+<p>The next part is where we connect Cuba with its friends. We&#39;ll have a
+closer look later.</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Ohm</span>.redis = <span class="hljs-constant">Redic</span>.new(<span class="hljs-constant">REDIS_URL</span>)
+
+<span class="hljs-constant">Cuba</span>.plugin(<span class="hljs-constant">Cuba::Mote</span>)
+<span class="hljs-constant">Cuba</span>.plugin(<span class="hljs-constant">Shield::Helpers</span>)
+
+...
+
+<span class="hljs-constant">Cuba</span>.use(<span class="hljs-constant">Rack::Protection</span>)
+<span class="hljs-constant">Cuba</span>.use(<span class="hljs-constant">Rack::Protection::RemoteReferrer</span>)
+</code></pre>
+<p>Next, we require the content of the subfolders where we find the core code
+of our application. This includes models, filter objects, helpers, etc.</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Dir</span>[<span class="hljs-string">"./models/**/*.rb"</span>].each  { |f| <span class="hljs-keyword">require</span>(f) }
+<span class="hljs-constant">Dir</span>[<span class="hljs-string">"./filters/**/*.rb"</span>].each { |f| <span class="hljs-keyword">require</span>(f) }
+<span class="hljs-constant">Dir</span>[<span class="hljs-string">"./helpers/**/*.rb"</span>].each { |f| <span class="hljs-keyword">require</span>(f) }
+<span class="hljs-constant">Dir</span>[<span class="hljs-string">"./routes/**/*.rb"</span>].each  { |f| <span class="hljs-keyword">require</span>(f) }
+</code></pre>
+<p>Finally, you should recognize the last part:</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Cuba</span>.define <span class="hljs-keyword">do</span>
+  on root <span class="hljs-keyword">do</span>
+    render(<span class="hljs-string">"home"</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>It&#39;s almost the same as in our first example, but with one significant
+difference: the <code>render</code> method. In the next chapter, we&#39;ll explain this
+method and see how it can be used to render view templates.</p>
 
                     
                     </section>
@@ -337,10 +325,8 @@ application.</p>
         </div>
 
         
-        <a href="../setting_the_road/structuring_the_application.html" class="navigation navigation-prev " aria-label="Previous page: Structuring the Application"><i class="fa fa-angle-left"></i></a>
+        <a href="../setting_the_road/up_and_running.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Up and Running"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../setting_the_road/up_and_running.html" class="navigation navigation-next " aria-label="Next page: Up and Running"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
