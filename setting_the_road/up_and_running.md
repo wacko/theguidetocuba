@@ -9,7 +9,7 @@ configurations. Go to the command line and type `make setup`.
 
 ![setup](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/setup.png)
 
-As you can see, this created a file called *env.sh*. For now, it's enough
+As you can see, this created a file called *.env*. For now, it's enough
 for you to know that this file contains sensitive configurations for the
 application. We'll discuss this in more detail later.
 

@@ -27,7 +27,7 @@ REDIS_URL = ENV.fetch("REDIS_URL")
 
 Because these are sensitive configurations, we use environment variables
 instead of putting them directly into the code. To load these values into
-our environment, we read them from the *env.sh* file when starting the
+our environment, we read them from the *.env* file when starting the
 server. Then, we use the `ENV` object to access them.
 
 The next part is where we connect Cuba with its friends. We'll have a
