@@ -39,4 +39,4 @@ run(Cuba)
 ```
 
 Don't worry if you don't understand what Rack is just yet, we'll discuss
-it in the next chapter.
+it in the next section.

@@ -36,4 +36,4 @@ run(Cuba)
 
 This time the definition of the application has been placed in a different
 file. This file is called *app.rb* and is the main file of our application.
-In the next chapter, we'll explore this file.
+In the next section, we'll explore this file.

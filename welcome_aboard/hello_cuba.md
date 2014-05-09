@@ -38,4 +38,4 @@ where it's running. To verify the server has stopped you should see your
 command prompt cursor again.
 
 As you can see, the syntax is very readable. We'll discuss the details
-in the next chapter.
+in the next section.
