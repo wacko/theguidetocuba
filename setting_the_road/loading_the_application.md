@@ -2,12 +2,12 @@ Loading the Application
 =======================
 
 In this section, we'll see how the *app.rb* file initializes the
-application. This file is important in the boot process because
-it defines everything the application needs to run. We'll walk
-step by step through this file so you understand everything that
-happens under the hood.
+application. This file is important in the boot process because it
+defines everything the application needs in order to run. We'll walk
+step by step through this file so you understand everything that happens
+under the hood.
 
-First, we require the gems we're going to use along this project.
+First, we require the gems we'll use in this project.
 
 ```ruby
 require "cuba"
@@ -16,8 +16,8 @@ require "cuba/mote"
 require "scrivener"
 ```
 
-Then we define some constants that are used to connect to a database or to
-check cookie data integrity.
+Then we define some constants that, for example, are used to connect to a
+database or to check cookie data integrity.
 
 ```ruby
 APP_KEY = ENV.fetch("APP_KEY")
@@ -26,9 +26,9 @@ REDIS_URL = ENV.fetch("REDIS_URL")
 ```
 
 Because these are sensitive configurations, we use environment variables
-instead of putting them directly into the code. To set these values into
-our environment, we load them from the *env.sh* file when starting the
-server. To read them, we use the Ruby `ENV` accessor.
+instead of putting them directly into the code. To load these values into
+our environment, we read them from the *env.sh* file when starting the
+server. Then, we use the `ENV` object to access them.
 
 The next part is where we connect Cuba with its friends. We'll have a
 closer look later.
@@ -55,7 +55,7 @@ Dir["./helpers/**/*.rb"].each { |f| require(f) }
 Dir["./routes/**/*.rb"].each  { |f| require(f) }
 ```
 
-You should recognize the last part:
+Finally, you should recognize the last part:
 
 ```ruby
 Cuba.define do
@@ -65,6 +65,6 @@ Cuba.define do
 end
 ```
 
-It's almost the same as in our first application, but with one significant
+It's almost the same as in our first example, but with one significant
 difference: the `render` method. In the next chapter, we'll explain this
 method and see how it can be used to render view templates.
