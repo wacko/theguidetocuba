@@ -1,5 +1,12 @@
 {
-    "plugins": ["-mixpanel", "-mathjax"],
+    "plugins": ["-mixpanel", "-mathjax", "ga"],
+
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-50838803-1"
+        }
+    },
+
     "links": {
         "home": false,
         "about": false,
