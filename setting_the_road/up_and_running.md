@@ -24,3 +24,16 @@ we change the application. Now navigate to <http://localhost:9393/>. You
 should see the Cuba welcome page.
 
 ![home](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/home.png)
+
+*Shotgun* uses a *config.ru* file just like *rackup*. Let's see what the
+*config.ru* file looks like in this template.
+
+```ruby
+require "./app"
+
+run(Cuba)
+```
+
+This time the definition of the application has been placed in a different
+file. This file is called *app.rb* and is the main file of our application.
+In the next chapter, we'll explore this file.
