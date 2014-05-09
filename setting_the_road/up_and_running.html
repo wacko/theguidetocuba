@@ -42,7 +42,7 @@ application from scratch, whether you are an experienced programmer or not.">
 
 
         
-    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.3" data-basepath=".." data-revision="1399641917721">
+    <div class="book" data-github="frodsan/theguidetocuba" data-level="3.3" data-basepath=".." data-revision="1399658667029">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -203,6 +203,12 @@ application from scratch, whether you are an experienced programmer or not.">
                             
                         </li>
                     
+                        <li  data-level="3.4" >
+                            
+                            <span><b>3.4.</b> The Main</span>
+                            
+                        </li>
+                    
                 </ul>
                 
             </li>
@@ -272,6 +278,15 @@ development because we don&#39;t need to restart the server every time that
 we change the application. Now navigate to <a href="http://localhost:9393/" target="_blank">http://localhost:9393/</a>. You
 should see the Cuba welcome page.</p>
 <p><img src="https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/home.png" alt="home"></p>
+<p><em>Shotgun</em> uses a <em>config.ru</em> file just like <em>rackup</em>. Let&#39;s see what the
+<em>config.ru</em> file looks like in this template.</p>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">"./app"</span>
+
+run(<span class="hljs-constant">Cuba</span>)
+</code></pre>
+<p>This time the definition of the application has been placed in a different
+file. This file is called <em>app.rb</em> and is the main file of our application.
+In the next section, we&#39;ll explore this file.</p>
 
                     
                     </section>
