@@ -11,4 +11,4 @@ Summary
   * [Structuring the Application](setting_the_road/structuring_the_application.md)
   * [Managing Dependencies](setting_the_road/managing_dependencies.md)
   * [Up and Running](setting_the_road/up_and_running.md)
-  * The Main
+  * [Loading the Application](setting_the_road/loading_the_application.md)
