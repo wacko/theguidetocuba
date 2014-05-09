@@ -9,3 +9,4 @@ After reading this chapter, you will know:
 
 * The general layout of a Cuba application.
 * How to properly manage project dependencies.
+* How the application initializes.
