@@ -1,11 +1,24 @@
 0.2
 ---
 
+NEWS:
+
 *   Set page domain: http://theguidetocuba.io/.
-*   Add missing description in "Setting the Road" README.
+
+CHANGES:
+
+Section 3.0 - "Setting the Road"
+
+*   Add missing goal.
+
+Section 3.4 - "Loading the Application"
+
+* Explain why ENV#fetch is used.
 
 0.1
 ---
+
+NEWS:
 
 *   Add "Welcome Aboard" chapter.
 *   Add "Setting the Road" chapter.
