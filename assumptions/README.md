@@ -1,8 +1,11 @@
 Assumptions
 ===========
 
-By following this book, we'll build a Twitter clone from scratch. In
-order to try out the examples of the book, you need to have some
+This book is intended for everyone who wants to get started with a Cuba
+application from scratch, whether you are an experienced programmer or
+not. By following this book, we'll build a Twitter clone from scratch.
+
+In order to try out the examples of the book, you need to have some
 prerequisites installed:
 
 * Ruby 2.0 or newer. You can get the latest Ruby from the
