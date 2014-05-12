@@ -1,6 +1,7 @@
 assets/
 .bookignore
 LICENSE
+CHANGELOG
 publish
 book.json
 .DS_Store
