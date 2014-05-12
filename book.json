@@ -1,4 +1,6 @@
 {
+    "description": "Learn how to make Ruby web applications by following a minimalistic approach.",
+
     "plugins": ["ga", "-mixpanel", "-mathjax"],
 
     "pluginsConfig": {
