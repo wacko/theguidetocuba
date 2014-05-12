@@ -1,5 +1,5 @@
-The Guide to Cuba
-=================
+A Guide to Cuba
+===============
 
 
 This book will teach you the basics of [Cuba](http://cuba.is/), the Ruby
