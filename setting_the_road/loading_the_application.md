@@ -17,7 +17,9 @@ require "scrivener"
 ```
 
 Then we define some constants that, for example, are used to connect to a
-database or to check cookie data integrity.
+database or to check cookie data integrity. Because these are sensitive
+configurations, we use environment variables instead of putting them
+directly into the code.
 
 ```ruby
 APP_KEY = ENV.fetch("APP_KEY")
@@ -25,11 +27,10 @@ APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("REDIS_URL")
 ```
 
-Because these are sensitive configurations, we use environment variables
-instead of putting them directly into the code. To load these values into
-our environment, we read them from the *.env* file when starting the
-server. Then, we use the `ENV` object to access them. The `fetch` method
-will raise an error if a configuration is not present.
+To load these values into our environment, we read them from the *.env*
+file when starting the server. Then, we use the `ENV` object to access
+them. The `fetch` method will raise an error if a configuration is not
+present.
 
 The next part is where we connect Cuba with its friends. We'll have a
 closer look later.
