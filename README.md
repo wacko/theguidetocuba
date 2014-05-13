@@ -7,7 +7,7 @@ microframework, and a set of micro libraries.
 
 ![screen](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/screen.png)
 
-This book is written by [Francesco Rodríguez](https://github.com/frodsan)
+This book is written by [Francesco Rodríguez](http://frodsan.me)
 and [Mayn Ektvedt Kjær](https://github.com/maynkj), and is a work in
 progress. A new chapter will be released every week. **Current revision:**
 [0.1](https://github.com/frodsan/theguidetocuba/releases/tag/1.0.0).
