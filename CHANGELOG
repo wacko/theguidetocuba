@@ -7,13 +7,9 @@ NEWS:
 
 CHANGES:
 
-Section 3.0 - "Setting the Road"
+3.4 - "Loading the Application"
 
-*   Add missing goal.
-
-Section 3.4 - "Loading the Application"
-
-*   Explain why ENV#fetch is used.
+*   Explain why `ENV#fetch` is used.
 
 0.1
 ---
