@@ -17,3 +17,4 @@ Summary
   * Layouts
   * The First Template
   * Passing Data into Templates
+* [Changelog](CHANGELOG.md)

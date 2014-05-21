@@ -1,5 +1,7 @@
-0.2
+0.2 - unreleased
 ---
+
+Date: -
 
 NEWS:
 
@@ -15,7 +17,7 @@ CHANGES:
 
 *   Explain why `ENV#fetch` is used.
 
-0.1
+0.1 - May 9, 2014
 ---
 
 NEWS:
