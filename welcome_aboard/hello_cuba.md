@@ -33,7 +33,7 @@ show a greeting message as shown below:
 
 ![hello](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/hello.png)
 
-**NOTE:** To stop the web server, hit `Ctrl+C` in the terminal window
+> **NOTE:** To stop the web server, hit `Ctrl+C` in the terminal window
 where it's running. To verify the server has stopped you should see your
 command prompt cursor again.
 
