@@ -26,12 +26,12 @@ run(Cuba)
 You already have a functional Cuba application! To see it in action, type
 `rackup config.ru` in the command line.
 
-![rackup](/assets/rackup.png)
+![rackup](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/rackup.png)
 
 Now open a browser and navigate to <http://localhost:9292/>. It should
 show a greeting message as shown below:
 
-![hello](/assets/hello.png)
+![hello](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/hello.png)
 
 > **NOTE:** To stop the web server, hit `Ctrl+C` in the terminal window
 where it's running. To verify the server has stopped you should see your
