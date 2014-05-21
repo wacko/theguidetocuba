@@ -1,8 +1,6 @@
 0.2 - unreleased
 ---
 
-Date: -
-
 NEWS:
 
 *   New web site: http://theguidetocuba.io/.
