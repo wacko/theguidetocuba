@@ -5,3 +5,4 @@ CHANGELOG
 publish
 book.json
 .DS_Store
+package.json
