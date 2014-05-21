@@ -7,6 +7,10 @@ NEWS:
 
 CHANGES:
 
+3.3 - "Up and Running"
+
+*   Application template uses `DATABASE_URL` instead of `REDIS_URL` now.
+
 3.4 - "Loading the Application"
 
 *   Explain why `ENV#fetch` is used.
