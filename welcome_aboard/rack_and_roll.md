@@ -7,7 +7,7 @@ Rack deals with HTTP requests. It provides a minimal interface between web
 servers supporting Ruby and Ruby frameworks. Without Rack, Cuba would have
 to implement its own handler for each web server.
 
-![graph](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/rack.png)
+![graph](/assets/rack.png)
 
 You didn't notice yet but we already used Rack. We used `rackup`, one of
 the tools that comes with Rack, to run our **"Hello Cuba!"** application.
