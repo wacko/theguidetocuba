@@ -24,7 +24,7 @@ directly into the code.
 ```ruby
 APP_KEY = ENV.fetch("APP_KEY")
 APP_SECRET = ENV.fetch("APP_SECRET")
-REDIS_URL = ENV.fetch("REDIS_URL")
+DATABASE_URL = ENV.fetch("DATABASE_URL")
 ```
 
 To load these values into our environment, we read them from the *.env*
@@ -36,7 +36,7 @@ The next part is where we connect Cuba with its friends. We'll have a
 closer look later.
 
 ```ruby
-Ohm.redis = Redic.new(REDIS_URL)
+Ohm.redis = Redic.new(DATABASE_URL)
 
 Cuba.plugin(Cuba::Mote)
 Cuba.plugin(Shield::Helpers)
