@@ -10,7 +10,7 @@
     },
 
     "links": {
-        "home": false,
+        "home": "https://www.gitbook.io/book/frodsan/theguidetocuba",
         "about": false,
         "issues": false,
         "contribute": false
