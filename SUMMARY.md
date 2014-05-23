@@ -13,7 +13,7 @@ Summary
   * [Up and Running](setting_the_road/up_and_running.md)
   * [Loading the Application](setting_the_road/loading_the_application.md)
 * [The View](theview/README.md)
-  * Mote
+  * [Mote](theview/mote.md)
   * Layouts
   * The First Template
   * Passing Data into Templates
