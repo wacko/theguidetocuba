@@ -16,7 +16,8 @@ template.call
 
 Mote can recognize two tags to evaluate Ruby code: `%` and `{{}}`. The
 difference between them is that the latter prints the result in the
-template.
+template. The next example shows a list of different uses cases you may
+face:
 
 ```ruby
 % # This is a comment.
@@ -34,3 +35,5 @@ Following the above example, the result will be this:
 <p>The value of y is 1</p>
 <p>The sum of x and y is 3</p>
 ```
+
+> **NOTE:** Mote is only 33 lines of code.

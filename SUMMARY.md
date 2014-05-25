@@ -14,7 +14,5 @@ Summary
   * [Loading the Application](setting_the_road/loading_the_application.md)
 * [The View](theview/README.md)
   * [Mote](theview/mote.md)
-  * Layouts
-  * The First Template
-  * Passing Data into Templates
+  * [Mote & Cuba](theview/mote_and_cuba.md)
 * [Changelog](CHANGELOG.md)
