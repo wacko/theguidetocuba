@@ -5,7 +5,7 @@ Learn how to make Ruby web applications by following a minimalistic
 approach. This book will teach you the basics of [Cuba](http://cuba.is/), the Ruby
 microframework, and a set of micro libraries.
 
-![screen](assets/screen.png)
+![screen](https://raw.githubusercontent.com/frodsan/theguidetocuba/master/assets/screen.png)
 
 This book is written by [Francesco Rodríguez](http://frodsan.me)
 and [Mayn Ektvedt Kjær](http://maynkj.com), and is a work in
