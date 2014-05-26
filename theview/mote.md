@@ -36,4 +36,6 @@ Following the above example, the result will be this:
 <p>The sum of x and y is 3</p>
 ```
 
+The next section shows how to integrate Mote with Cuba.
+
 > **NOTE:** Mote is only 33 lines of code.
