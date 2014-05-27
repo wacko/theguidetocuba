@@ -1,6 +1,0 @@
-assets/
-.bookignore
-LICENSE
-book.json
-.DS_Store
-package.json
