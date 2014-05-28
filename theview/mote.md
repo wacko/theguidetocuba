@@ -14,21 +14,23 @@ template.call
 # => The value of pi is 3.141592653589793
 ```
 
-Mote can recognize two tags to evaluate Ruby code: `%` and `{{}}`. The
-difference between them is that the latter prints the result in the
-template. The next example shows a list of different uses cases you may
-face:
+Mote recognizes two tags to evaluate Ruby code: `%` and `{{}}`. 
+The difference between them is that while the `%` tag only evaluates 
+the code, the `{{}}` tag also prints the result to the template. 
+
+The next example shows a list of different use cases you may face:
 
 ```ruby
 % # This is a comment.
 % x = 2
 % y = 1
+
 <p>The value of x is {{ x }}</p>
 <p>The value of y is {{ y }}</p>
 <p>The sum of x and y is {{ x + y }}</p>
 ```
 
-Following the above example, the result will be this:
+Following the above example, the printed result will be:
 
 ```html
 <p>The value of x is 2</p>
@@ -38,4 +40,4 @@ Following the above example, the result will be this:
 
 The next section shows how to integrate Mote with Cuba.
 
-> **NOTE:** Mote is only 33 lines of code.
+> **NOTE:** Mote only has 33 lines of code.
