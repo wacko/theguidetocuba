@@ -68,3 +68,23 @@ footer {
   padding: 0.5em 0;
   text-align: center;
 }
+
+@media only screen and (min-width: 670px) {
+  body {
+    width: 670px;
+    margin: 0 auto;
+  }
+
+  #authors {
+    overflow: hidden;
+  }
+
+  .author {
+    float: left;
+    width: 45%;
+  }
+
+  #maynkj {
+    float: right;
+  }
+}
