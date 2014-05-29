@@ -21,6 +21,27 @@ header h1 {
   margin-right: 1em;
 }
 
+#read {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+#read p {
+  margin-top: 0.5em;
+}
+
+.action {
+  background: #D32C36;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+
+.disable {
+  opacity: 0.5;
+}
+
 #authors {
   border-top: 1px solid #CCC;
 }
