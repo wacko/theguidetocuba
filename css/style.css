@@ -79,12 +79,18 @@ footer {
     margin: 0 auto;
   }
 
+  #about {
+    overflow: inherit;
+  }
+
   #about img {
-    height: 262px;
     width: 200px;
+    height: 262px;
   }
 
   #authors {
+    clear: both;
+    margin-top: 8em;
     overflow: hidden;
   }
 
