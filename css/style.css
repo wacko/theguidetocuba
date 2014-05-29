@@ -1,0 +1,31 @@
+body {
+  background: #FFF6DF;
+  font-family: "Merriweather", serif;
+}
+
+#authors {
+  border-top: 1px solid #CCC;
+}
+
+.author {
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.author img {
+  border: 3px solid white;
+  border-radius: 10px;
+  float: left;
+  margin-right: 1em;
+}
+
+.author h4, .author p {
+  margin: 0.3em;
+}
+
+footer {
+  border-top: 1px solid #CCC;
+  font-size: 0.7em;
+  padding: 0.5em 0;
+  text-align: center;
+}
