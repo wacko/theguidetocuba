@@ -88,6 +88,17 @@ footer {
     height: 262px;
   }
 
+  #about p {
+    margin-left: 16em;
+    margin-right: 1em;
+  }
+
+  #read {
+    display: block;
+    margin-top: 2em;
+    margin-right: 2em;
+  }
+
   #authors {
     clear: both;
     margin-top: 8em;
