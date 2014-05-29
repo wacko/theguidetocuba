@@ -19,6 +19,8 @@ header h1 {
 #about img {
   float: left;
   margin-right: 1em;
+  height: 131px;
+  width: 100px;
 }
 
 #read {
