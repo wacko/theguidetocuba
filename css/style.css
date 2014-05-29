@@ -79,6 +79,11 @@ footer {
     margin: 0 auto;
   }
 
+  #about img {
+    height: 262px;
+    width: 200px;
+  }
+
   #authors {
     overflow: hidden;
   }
