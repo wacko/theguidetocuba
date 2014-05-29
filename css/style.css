@@ -8,6 +8,19 @@ header h1 {
   text-align: center;
 }
 
+#presentation {
+  border-top: 1px solid #CCC;
+}
+
+#about {
+  overflow: hidden;
+}
+
+#about img {
+  float: left;
+  margin-right: 1em;
+}
+
 #authors {
   border-top: 1px solid #CCC;
 }
