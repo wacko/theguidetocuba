@@ -21,8 +21,8 @@ Cuba.define do
 end
 ```
 
-The problem with this approach is that it's hard to reuse parts of
-the HTML that every page uses, for example a navigation bar. Therefore,
+The problem with this approach is that it's hard to reuse parts of the HTML
+that every page uses, for example a navigation bar or a footer. Therefore,
 we separate it into *views*, which are templates that gets converted to
 HTML and sent back to the browser.
 
