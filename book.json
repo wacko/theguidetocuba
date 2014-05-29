@@ -1,13 +1,6 @@
 {
     "description": "Learn how to make Ruby web applications by following a minimalistic approach.",
-
-    "plugins": ["ga", "-mixpanel", "-mathjax"],
-
-    "pluginsConfig": {
-        "ga": {
-            "token": "UA-50838803-1"
-        }
-    },
+    "plugins": ["-mixpanel", "-mathjax"],
 
     "links": {
         "home": false,
