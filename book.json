@@ -1,6 +1,6 @@
 {
     "description": "Learn how to make Ruby web applications by following a minimalistic approach.",
-    "plugins": ["-mixpanel", "-mathjax"],
+    "plugins": ["-mathjax"],
 
     "links": {
         "home": false,
