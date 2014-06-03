@@ -1,5 +1,6 @@
 {
     "dependencies": {
-        "gitbook": "0.5.0"
+        "gitbook": "0.5.0",
+        "gitbook-plugin-mixpanel": "0.0.3"
     }
 }
