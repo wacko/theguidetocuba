@@ -40,10 +40,6 @@ header h1 {
   text-decoration: none;
 }
 
-.disable {
-  opacity: 0.5;
-}
-
 #authors {
   border-top: 1px solid #CCC;
 }
