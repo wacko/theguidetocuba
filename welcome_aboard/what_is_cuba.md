@@ -1,7 +1,7 @@
 What's Cuba?
 ============
 
-To begin, let's take a moment to answer "what is Cuba?".
+To begin, let's take a moment to answer *"what is Cuba?"*.
 
 Cuba is a web application micro-framework written in Ruby by [Michel Martens](https://github.com/soveran).
 It rides on [Rack](http://rack.github.io) so we have the benefits of
