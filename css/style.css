@@ -92,12 +92,12 @@ footer {
   #read {
     display: block;
     margin-top: 2em;
-    margin-right: 2em;
+    margin-bottom: 2.5em;
   }
 
   #authors {
     clear: both;
-    margin-top: 3.5em;
+    margin-top: 2.5em;
     overflow: hidden;
   }
 
