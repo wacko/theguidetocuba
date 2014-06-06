@@ -1,18 +1,19 @@
-Breaking Down the Syntax
-========================
+Entendiendo la sintaxis
+=======================
 
-Now that we know how to build a minimal Cuba application, let's take a deeper
-look at the syntax. We can split this example into three parts:
+Ahora que sabemos cómo crear una mínima aplicación con Cuba, vamos a
+echar un vistazo más profundo a la sintaxis. Podemos dividir este
+ejemplo en tres partes:
 
-First, we require Cuba to load the gem and get access to
-its functionality.
+En primer lugar, usamos el método `require` para cargar el código de
+Cuba.
 
 ```ruby
 require "cuba"
 ```
 
-Then we can identify four methods that appear in most Cuba
-applications: `define`, `on`, `root` and `res`.
+Luego, podemos identificar cuatro métodos que son muy usados: `define`,
+`on`, `root` and `res`.
 
 ```ruby
 Cuba.define do
@@ -22,21 +23,23 @@ Cuba.define do
 end
 ```
 
-* `define` allows us to create an application through a block.
+* `define`, como su nombre lo dice, nos permite definir una aplicación
+  a través de un *block*.
 
-* `on` executes a given block if the passed conditions evaluate to `true`.
+* `on` ejecuta un *block* determinado si al evaluar las condiciones,
+  estas retornan `true`.
 
-* `root` returns `true` if the accessed path is the root of the
-  application (`"/"` or `""`).
+* `root` retorna `true` sólo si la ruta a la que se accede es la raíz
+  de la aplicación (`"/"` or `""`).
 
-* `res` handles the server response. In this case, we use the `write`
-  method to set the response body with the greeting message.
+* `res` maneja la respuesta del servidor. En este caso, usamos el
+  método `write` para mostrar el mensaje de bienvenida.
 
-Finally, the last line connects our application with Rack.
+Finalmente, la última línea conecta nuestra aplicación con Rack.
 
 ```ruby
 run(Cuba)
 ```
 
-Don't worry if you don't understand what Rack is just yet, we'll discuss
-it in the next section.
+No te preocupes si no entiendes qué es Rack ahora, vamos a discutirlo
+en la siguiente sección.
