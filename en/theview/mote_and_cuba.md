@@ -1,14 +1,13 @@
 Mote & Cuba
 ===========
 
-To use Mote into Cuba applications, we will use the
+To use Mote in our Cuba application, we'll use the
 [cuba-contrib](https://github.com/cyx/cuba-contrib/) gem. This gem
 contains a series of useful extensions for Cuba.
 
-To integrate Mote into a Cuba application, we need to do two steps.
-First, require the `cuba/mote` file and then load the `Cuba::Mote`
-extension. If we look closely, this is already done in the `app.rb`
-file:
+To make use of it you have to require the `cuba/mote` file and load 
+the `Cuba::Mote` extension. If we look closely, this has already 
+been done in the `app.rb` file:
 
 ```ruby
 require "cuba"
