@@ -15,3 +15,4 @@ Summary
 * [The View](theview/README.md)
   * [Mote](theview/mote.md)
   * [Mote & Cuba](theview/mote_and_cuba.md)
+  * [Templates](theview/templates.md)

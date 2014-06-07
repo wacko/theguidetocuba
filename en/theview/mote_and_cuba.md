@@ -1,13 +1,9 @@
 Mote & Cuba
 ===========
 
-To use Mote in our Cuba application, we'll use the
-[cuba-contrib](https://github.com/cyx/cuba-contrib/) gem. This gem
-contains a series of useful extensions for Cuba.
-
-To make use of it you have to require the `cuba/mote` file and load 
-the `Cuba::Mote` extension. If we look closely, this has already 
-been done in the `app.rb` file:
+To use Mote in our application, we have to require the `cuba/mote` file
+and include the `Cuba::Mote` plugin that comes with it. If we look closely,
+this has already been done in the `app.rb` file:
 
 ```ruby
 require "cuba"
@@ -18,61 +14,14 @@ require "cuba/mote"
 Cuba.plugin(Cuba::Mote)
 ```
 
-Now that we have included Mote in our project, it's time to have 
-a look at the  *view templates*. All view templates are typically 
-placed in a folder named `views` as shown in section 3.1.
+The `Cuba::Mote` plugin is one of the useful extensions provided by the
+[cuba-contrib](https://github.com/cyx/cuba-contrib/) gem, one of the gems
+we installed in the section: ["Managing Dependencies"](/en/setting_the_road/managing_dependencies.html).
 
-If we have a look at the `views` folder in our application we see two 
-files, `layout.mote` and `home.mote`. The `layout.mote` is used to 
-define the main structure of our site. It contains all the elements 
-that will be repeated on every page rendered by our application, such 
-as the header and footer.
-
-In our case it looks like this:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>App</title>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    {{ params[:content] }}
-  </body>
-</html>
+```ruby
+Cuba.define do
+  on root do
+    render("home")
+  end
+end
 ```
-
-Here we define a simple HTML document, with a header and a body.
-The header will be the same on all our pages and is therefore 
-included in the main layout. The content of the body however will differ 
-and is passed to the layout depending on which page we want to render.
-
-As you can see the content parameter is printed to the template using 
-the `{{}}` tags, like this: `{{ params[:content] }}`. 
-
-Now, have a look at the `home.mote` file. The content of this file is 
-what's being rendered when displaying the home page of the application.
-
-Right now it's showing and embedded version of the Cuba home page.
-
-```html
-<iframe src="http://cuba.is" frameborder="0" height="100%" width="100%">
-  You need a Frames Capable browser to view this content.
-</iframe>
-```
-
-Open the file and replace the content with the following:
-
-```html
-<p>Hello Cuba!</p>
-```
-
-If you start your server and go to 
-[localhost:9393](http://localhost:9393) you should see the following
-greeting:
-
-PICTURE
-
-You changed the content of the home page!
