@@ -16,12 +16,4 @@ Cuba.plugin(Cuba::Mote)
 
 The `Cuba::Mote` plugin is one of the useful extensions provided by the
 [cuba-contrib](https://github.com/cyx/cuba-contrib/) gem, one of the gems
-we installed in the section: ["Managing Dependencies"](/en/setting_the_road/managing_dependencies.html).
-
-```ruby
-Cuba.define do
-  on root do
-    render("home")
-  end
-end
-```
+we installed in the section [Managing Dependencies](/en/setting_the_road/managing_dependencies.html).

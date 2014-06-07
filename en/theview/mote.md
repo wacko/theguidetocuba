@@ -14,9 +14,9 @@ template.call
 # => The value of pi is 3.141592653589793
 ```
 
-Mote recognizes two tags to evaluate Ruby code: `%` and `{{}}`. 
-The difference between them is that while the `%` tag only evaluates 
-the code, the `{{}}` tag also prints the result to the template. 
+Mote recognizes two tags to evaluate Ruby code: `%` and `{{}}`.
+The difference between them is that while the `%` tag only evaluates
+the code, the `{{}}` tag also prints the result to the template.
 
 The next example shows a list of different use cases you may face:
 
