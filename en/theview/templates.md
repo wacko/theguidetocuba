@@ -3,9 +3,10 @@ Templates
 
 Now that we have included Mote in our project, it's time to have
 a look at the  *view templates*. All view templates are typically
-placed in a folder named `views` as shown in section 3.1.
+placed in a folder named `views` as shown in the section
+[Structuring the Application](/en/setting_the_road/structuring_the_application.html).
 
-If we have a look at the `views` folder in our application we see two
+If we have a look at the `views` folder in our application, we see two
 files, `layout.mote` and `home.mote`. The `layout.mote` is used to
 define the main structure of our site. It contains all the elements
 that will be repeated on every page rendered by our application, such
@@ -36,9 +37,8 @@ As you can see the content parameter is printed to the template using
 the `{{}}` tags, like this: `{{ params[:content] }}`.
 
 Now, have a look at the `home.mote` file. The content of this file is
-what's being rendered when displaying the home page of the application.
-
-Right now it's showing and embedded version of the Cuba home page.
+rendered when displaying the home page of the application. Right now it's
+showing an embedded version of the Cuba home page.
 
 ```html
 <iframe src="http://cuba.is" frameborder="0" height="100%" width="100%">
@@ -53,10 +53,9 @@ Open the file and replace the content with the following:
 ```
 
 If you start your server and go to
-[localhost:9393](http://localhost:9393) you should see the following
+[localhost:9393](http://localhost:9393), you should see the following
 greeting:
 
-PICTURE
+![hello](../assets/hello2.png)
 
 You changed the content of the home page!
-
